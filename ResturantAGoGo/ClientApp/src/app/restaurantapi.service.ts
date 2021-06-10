@@ -9,11 +9,11 @@ export class RestaurantapiService {
   constructor(private http: HttpClient ) {
 
   }
-  //get the resturant method
+  //get the resturants method
 
   getAllRestaurants(): any {
-    const header = new HttpHeaders().set('Authorization',this.apiKey);
-    return this.http.get(this.apiUrl, { header });
+    const headers = new HttpHeaders().set('Authorization',this.apiKey);
+    return this.http.get(this.apiUrl, { headers:headers });
 
   }
 }

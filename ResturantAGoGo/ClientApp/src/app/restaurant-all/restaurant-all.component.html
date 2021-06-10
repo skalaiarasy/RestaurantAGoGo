@@ -1,1 +1,5 @@
-﻿<div style="border: 1px solid red">RestaurantAll Component</div>
+<div style="border: 1px solid red">RestaurantAll Component</div>
+<div *ngFor="let r of getRestaurants()">
+  {{r.location}}
+  {{r.name}}
+</div>
