@@ -4,8 +4,13 @@
   <h3>Name of the Restaurant:{{r.businesses.name}}</h3>
 </div>-->
 <h1>Testing</h1>
+<!--*ngFor="let r of getRestaurants()-->
 <div style="border: 1px solid black" *ngFor="let r of restaurantList">
-  <h3> {{r.name}}</h3>
-  <h4>{{r.location.address1}}</h4>
-  <h4>{{r.location.city}} {{r.location.state}} {{r.location.zip_code}}</h4>
+  <h3> {{ r.name }}</h3>
+  <h4>{{ r.address }}</h4>
+  <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
+  <p>{{ r.openNow }}</p>
+  <p>{{ r.type }}</p>
+  <p>{{ r.img }}</p>
+
 </div>
