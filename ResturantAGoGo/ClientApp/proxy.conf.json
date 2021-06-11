@@ -1,0 +1,13 @@
+{
+  "/yelp": {
+    "target": "https://api.yelp.com/v3",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/yelp": ""
+    },
+    "headers": {
+      "Authorization": "Bearer Bmtr7SZS4RMwjn9cC6UIKcpekqpc79fHskbIQAJ096rBentfTjyV9OKtN2BjDfEz6dC6DkHcPVlgdjg74jw3tS8JsAvqOXv5folWDnSkN0WfJe6l2DNaySVEXSTBYHYx"
+    }
+  }
+}
