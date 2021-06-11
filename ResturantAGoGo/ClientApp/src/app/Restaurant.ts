@@ -5,6 +5,10 @@ export interface Restaurant{
   state: string;
   zip: number;
   openNow: boolean;
-  type: string;
+  type: Category[];
   img: string;
+}
+interface Category {
+  alias: string;
+  title: string;
 }

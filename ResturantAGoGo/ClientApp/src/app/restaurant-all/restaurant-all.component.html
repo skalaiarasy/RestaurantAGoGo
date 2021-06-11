@@ -10,7 +10,7 @@
   <h4>{{ r.address }}</h4>
   <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
   <p>{{ r.openNow }}</p>
-  <p>{{ r.type }}</p>
+  <p *ngFor="let t of r.type">{{ t.title }}</p>
   <p>{{ r.img }}</p>
 
 </div>

@@ -37,6 +37,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\category\category.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\category\category.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\Restaurant.ts" />
   </ItemGroup>
 

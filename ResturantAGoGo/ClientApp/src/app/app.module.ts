@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RestaurantAllComponent } from './restaurant-all/restaurant-all.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RestaurantAllComponent } from './restaurant-all/restaurant-all.componen
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    RestaurantAllComponent
+    RestaurantAllComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,7 +31,8 @@ import { RestaurantAllComponent } from './restaurant-all/restaurant-all.componen
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'restaurant-all', component: RestaurantAllComponent}
+      { path: 'restaurant-all', component: RestaurantAllComponent },
+      { path: 'category', component: CategoryComponent }
     ])
   ],
   providers: [],

@@ -12,14 +12,6 @@ import { RestaurantapiService } from '../restaurantapi.service';
 export class RestaurantAllComponent implements OnInit{
 
   restaurantList: Restaurant[] = [];
-  //name: string = '';
-  //address: string = '';
-  //city: string = '';
-  //state: string = '';
-  //zip: number = 0;
-  //openNow: boolean = true;
-  //type: string = '';
-  //img: string = '';
 
     /** RestaurantAll ctor */
     constructor(private service:RestaurantapiService) {
@@ -33,15 +25,6 @@ export class RestaurantAllComponent implements OnInit{
   getRestaurants(): void{
     this.service.getAllRestaurants().subscribe(
       (response: any) => {
-        //this.name = response.businesses.name;
-        //this.address = response.businesses.location.address1;
-        //this.city = response.location.city;
-        //this.state = response.state;
-        //this.zip = response.zip;
-        //this.openNow = response.openNow;
-        //this.type = response.type;
-        //this.img = response.img;
-        //this.restaurantList = response.businesses;
         response.businesses.forEach((b) => {
           /*console.log(b);*/
           let restaurant: Restaurant = {
@@ -51,7 +34,9 @@ export class RestaurantAllComponent implements OnInit{
             state: b.location.state,
             zip: b.location.zip_code,
             openNow: b.is_closed,
-            type: b.categories[0].title,
+            type: b.categories,
+            /*type2: b.categories[1].title,*/
+            //type3: b.categories[2].title,
             img: b.image_url
           }
           this.restaurantList.push(restaurant);
@@ -59,5 +44,7 @@ export class RestaurantAllComponent implements OnInit{
         /*console.log(response)*/
       });
   }
+
+  
 
 }
