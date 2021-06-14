@@ -11,6 +11,7 @@ namespace RestaurantAGoGo
     [ApiController]
     public class RestaurantController : ControllerBase
     {
+
         [HttpGet("GetUser")]
         //public User GetUser(int userId)
         //{
@@ -104,4 +105,10 @@ namespace RestaurantAGoGo
 
 
 
+
+        //}
+    }
 }
+    
+
+
