@@ -11,10 +11,19 @@ namespace RestaurantAGoGo
     [ApiController]
     public class RestaurantController : ControllerBase
     {
-        
-       
-    }
 
+        //api/Category
+        //[HttpGet("Category")]
+        //public Restaurant GetCategory()
+        //{
+        //    using (RestaurantContext context = new RestaurantContext())
+        //    {
+        //        return context.ToList();
+        //    }
+
+        //}
+    }
+}
     
 
-}
+

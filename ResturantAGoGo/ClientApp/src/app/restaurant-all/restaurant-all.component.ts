@@ -33,11 +33,8 @@ export class RestaurantAllComponent implements OnInit{
             city: b.location.city,
             state: b.location.state,
             zip: b.location.zip_code,
-            openNow: b.is_closed,
             type: b.categories,
-            /*type2: b.categories[1].title,*/
-            //type3: b.categories[2].title,
-            img: b.image_url
+            img: b.img,
           }
           this.restaurantList.push(restaurant);
         })

@@ -4,7 +4,6 @@ export interface Restaurant{
   city: string;
   state: string;
   zip: number;
-  openNow: boolean;
   type: Category[];
   img: string;
 }

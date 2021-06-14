@@ -1,4 +1,27 @@
-<!--<div style="border: 1px solid red">Choose a restaurant category</div>
-<button>Mexican</button>
-<button>Chinese</button>
-<button>Indian</button>-->
+<h1>Testing</h1>
+<form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
+  <div>
+    <input name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
+    <button>Submit</button>
+  </div>
+</form>
+
+<div *ngIf="zip_code != 0">
+<button type="submit" name="categories" ngModel (click)="setCategoryClick()">All</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('mexican')">Mexican</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('chinese')">Chinese</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('indpak')">Indian</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('bbq')">Barbeque</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('hotdogs')">Fast Food</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('pizza')">Pizza</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('italian')">Italian</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('sandwiches')">Sandwiches</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('breakfast_brunch')">Breakfast</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('mideastern')">Middle Eastern</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('thai')">Thai</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('newamerican')">New American</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('tradamerican')">Traditional American</button>
+<button type="submit" name="categories" ngModel (click)="setCategoryClick('vegetarian')">Vegetarian</button>
+</div>
+
+
