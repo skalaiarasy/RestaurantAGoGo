@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
 import { Router } from '@angular/router';
+import { DatastoreService } from '../datastore.service';
 
 @Component({
     selector: 'app-category',
@@ -17,10 +18,11 @@ export class CategoryComponent {
   categories: string = '';
 
     /** category ctor */
-  constructor(private service: RestaurantapiService, public router: Router) {
+  constructor(private service: RestaurantapiService, public router: Router, public datastoreservice: DatastoreService) {
 
   }
   setZipCode(form: NgForm): void {
+    console.log(this.datastoreservice.getUser());
     this.zip_code = form.form.value.zip_code;
     console.log(this.zip_code);
     this.service.setZip(this.zip_code);

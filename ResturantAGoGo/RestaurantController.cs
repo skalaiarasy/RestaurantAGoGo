@@ -38,12 +38,12 @@ namespace RestaurantAGoGo
         }
         [HttpGet("getuserinfo")]
         //api/Restaurant/getuserinfo
-        public User GetUserInfo(int userId, string password)
+        public User GetUserInfo(string userName, string password)
         {
             User user = new User();
             using (RestaurantContext restaurantContext = new RestaurantContext())
             {
-                user = restaurantContext.Users.ToList().Find(u => u.UserId == userId && u.Password == password);
+                user = restaurantContext.Users.ToList().Find(u => u.UserName == userName && u.Password == password);
                 return user;
             }
         }
