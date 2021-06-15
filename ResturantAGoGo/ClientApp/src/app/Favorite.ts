@@ -1,9 +1,9 @@
-export Interface Favorite{
+export interface Favorite{
   favoriteId: number;
-  userId: string;
+  userId: number;
   yelpId: string;
   restaurantName: string;
-  restuarantAddress: string;
+  restaurantAddress: string;
   img: string;
 
 }

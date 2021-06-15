@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class CategoryComponent {
 
   /*restByCatList: Restaurant[] = [];*/
-  zip_code: number = 0;
+  zip_code: string = '';
   categories: string = '';
 
     /** category ctor */
