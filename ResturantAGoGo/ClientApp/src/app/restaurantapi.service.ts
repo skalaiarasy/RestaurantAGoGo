@@ -67,6 +67,7 @@ export class RestaurantapiService {
   //https://localhost:44334/api/Restaurant/addfavorite?userId=3&yelpID=mex123&restaurantName=Mexican&restaurantAddress=Troy&img=sdds233
   addFavorite(restaurant: Restaurant) {
     console.log(this.datastore.getUser());
+    this.setID(this.datastore.getUser().userId);
     let newFavorite : Favorite = {
       favoriteId: null,
       userId: this.currentId,

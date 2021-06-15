@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticateService } from '../authenticate.service';
 import { DatastoreService } from '../datastore.service';
+import { RestaurantapiService } from '../restaurantapi.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private service: AuthenticateService, private tokenStorage: DatastoreService, public router: Router) { }
+  constructor(private service: AuthenticateService, private tokenStorage: DatastoreService, public router: Router, public restaurantService: RestaurantapiService) { }
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -37,6 +38,7 @@ export class LoginComponent {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.restaurantService.setID(data.userId);
         //this.reloadPage();
         this.router.navigate(['/category']);
       },
