@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Restaurant } from './Restaurant';
 import { Router } from '@angular/router';
 import { Favorite } from './Favorite';
+import { DatastoreService } from './datastore.service';
 
 @Injectable({ providedIn: 'root' })
 
@@ -12,8 +13,8 @@ export class RestaurantapiService {
 
   zip_code = "";
   categories = "";
-    apiUrl: string = `/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=${this.categories}`;
-  constructor(private http: HttpClient, public router: Router) {
+  apiUrl: string = `/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=${this.categories}`;
+  constructor(private http: HttpClient, private datastore: DatastoreService, public router: Router) {
    
   }
   baseUrl: string;
@@ -63,20 +64,22 @@ export class RestaurantapiService {
   getID(): number {
     return this.currentId;
   }
-  //https://localhost:44334/api/Restaurant/addfavorite?userId=3&catoryId=mex123&restaurantName=Mexican&restaurantAddress=Troy&img=sdds233
-  addFavorite(id: number) {
+  //https://localhost:44334/api/Restaurant/addfavorite?userId=3&yelpID=mex123&restaurantName=Mexican&restaurantAddress=Troy&img=sdds233
+  addFavorite(restaurant: Restaurant) {
+    console.log(this.datastore.getUser());
     let newFavorite : Favorite = {
       favoriteId: null,
       userId: this.currentId,
-      yelpId: this.categories,
-      restaurantName: this.categories,
-      restaurantAddress: this.categories,
-      img: this.categories
+      yelpId: restaurant.yelpID,
+      restaurantName: restaurant.name,
+      restaurantAddress: restaurant.address,
+      img: restaurant.img
     };
     
     const params = new HttpParams();
     //need to fix this code
-    return this.http.post(this.baseUrl + "api/Restaurant/addfavorite?userId=" + newFavorite.userId + "&catoryId=" + newFavorite.yelpId + "&restaurantName=" + newFavorite.restaurantName + "&restaurantAddress=" + newFavorite.restaurantAddress, params)
+    //console.log(this.baseUrl);
+    return this.http.post("api/Restaurant/addfavorite?userId=" + newFavorite.userId + "&yelpID=" + newFavorite.yelpId + "&name=" + newFavorite.restaurantName + "&address=" + newFavorite.restaurantAddress +"&img=" + newFavorite.img, params)
       .subscribe(data => {
         console.log(data);
       },

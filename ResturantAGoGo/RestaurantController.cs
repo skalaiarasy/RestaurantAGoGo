@@ -80,17 +80,18 @@ namespace RestaurantAGoGo
         //api/favorite/addfavorite
         //adding favarite
         [HttpPost("addfavorite")]
-        public Favorite AddFavorite(int userId, string catagoryId, string restaurantName, string restaurantAddress, string img)
+        public Favorite AddFavorite(int userId, string yelpID, string name, string address, string img)
         {
             Favorite favorite = new Favorite();
+            
             using (RestaurantContext favoriteContext = new RestaurantContext())
             {
                 favorite.UserId = userId;
-                favorite.YelpId = catagoryId;
-                favorite.RestaurantName = restaurantName;
-                favorite.RestaurantAddress = restaurantAddress;
+                favorite.YelpId = yelpID;
+                favorite.RestaurantName = name;
+                favorite.RestaurantAddress = address;
                 favorite.Img = img;
-                favoriteContext.Add(favorite);
+                favoriteContext.Favorites.Add(favorite);
                 favoriteContext.SaveChanges();
                 return favorite;
 

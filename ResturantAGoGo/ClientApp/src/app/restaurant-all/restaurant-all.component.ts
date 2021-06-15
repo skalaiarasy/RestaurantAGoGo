@@ -45,8 +45,8 @@ export class RestaurantAllComponent implements OnInit{
       });
   }
 
-  addFavorite(id: number) {
-    this.service.addFavorite(id);
+  addFavorite(restaurant:Restaurant) {
+    this.service.addFavorite(restaurant);
     this.router.navigate(['restaurant-all']);
 
   }
