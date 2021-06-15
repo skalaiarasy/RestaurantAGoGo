@@ -40,6 +40,8 @@
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\src\app\category\category.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\category\category.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\favorites\favorites.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\favorites\favorites.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

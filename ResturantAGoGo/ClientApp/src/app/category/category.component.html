@@ -6,7 +6,7 @@
   </div>
 </form>
 
-<div *ngIf="zip_code != 0">
+<div *ngIf="zip_code != ''">
 <button type="submit" name="categories" ngModel (click)="setCategoryClick()">All</button>
 <button type="submit" name="categories" ngModel (click)="setCategoryClick('mexican')">Mexican</button>
 <button type="submit" name="categories" ngModel (click)="setCategoryClick('chinese')">Chinese</button>

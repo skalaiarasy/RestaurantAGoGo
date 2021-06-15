@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
 
@@ -14,7 +15,7 @@ export class RestaurantAllComponent implements OnInit{
   restaurantList: Restaurant[] = [];
 
     /** RestaurantAll ctor */
-    constructor(private service:RestaurantapiService) {
+    constructor(private service:RestaurantapiService, private route:ActivatedRoute, public router:Router ) {
     
   }
 
@@ -42,6 +43,15 @@ export class RestaurantAllComponent implements OnInit{
       });
   }
 
-  
+  addFavorite(id: number) {
+    this.service.addFavorite(id);
+    this.router.navigate(['restaurant-all']);
+
+  }
+
+  removeFavorite(userId: number, favId:number) {
+    this.service.removeFavorite(userId,favId);
+    this.router.navigate(['restuarant-all']);
+  }
 
 }

@@ -12,17 +12,32 @@ namespace RestaurantAGoGo
     public class RestaurantController : ControllerBase
     {
 
-        [HttpGet("GetUser")]
-        //public User GetUser(int userId)
-        //{
-        //    User user = new User();
-        //    using (RestaurantContext restaurantContext = new RestaurantContext())
-        //    {
-        //        user = restaurantContext.Users.ToList().Find(u => u.UserId == userId);
-        //        return user;
-        //    }
-        //}
+        [HttpGet("getall")]
 
+       
+        //api/Restaurant/getall
+        public List<User> GetAll()
+        {
+            User user = new User();
+            using (RestaurantContext restaurantContext = new RestaurantContext())
+            {
+                //user = restaurantContext.Users.ToList().Find(u => u.UserId == userId);
+                return restaurantContext.Users.ToList();
+            }
+        }
+        
+        [HttpGet("getuser")]
+        public User GetUser(int userId)
+        {
+            User user = new User();
+            using (RestaurantContext restaurantContext = new RestaurantContext())
+            {
+                user = restaurantContext.Users.ToList().Find(u => u.UserId == userId);
+                return user;
+            }
+        }
+        [HttpGet("getuserinfo")]
+        //api/Restaurant/getuserinfo
         public User GetUserInfo(int userId, string password)
         {
             User user = new User();
@@ -39,26 +54,26 @@ namespace RestaurantAGoGo
 
 
         //Add the user information
-        //api/user/adduser
-        [HttpPost("AddUser")]
+        //api/Restaurant/adduser
+        //[HttpPost("adduser")]
 
-        public User AddUser(string userName, string password)
-        {
-            using (RestaurantContext restaurantContext = new RestaurantContext())
-            {
-                User user = new User();
-                user.UserName = userName;
-                user.Password = password;
-                restaurantContext.Add(user);
-                restaurantContext.SaveChanges();
-                return user;
-            }
-        }
+        //public User AddUser(string userName, string password)
+        //{
+        //    using (RestaurantContext restaurantContext = new RestaurantContext())
+        //    {
+        //        User user = new User();
+        //        user.UserName = userName;
+        //        user.Password = password;
+        //        restaurantContext.Add(user);
+        //        restaurantContext.SaveChanges();
+        //        return user;
+        //    }
+        //}
 
         //method to getting Favorite
-        //api/favorite/getmyfavorite
+        //api/Restaurant/getmyfavorites
 
-        [HttpGet("GetMyFavorites")]
+        [HttpGet("getmyfavorites")]
         public List<Favorite> GetMyFavorites()
         {
             using (RestaurantContext favoriteContext = new RestaurantContext())
@@ -66,16 +81,16 @@ namespace RestaurantAGoGo
                 return favoriteContext.Favorites.ToList();
             }
         }
-        //api/favorite/AddFavorite
+        //api/favorite/addfavorite
         //adding favarite
-        [HttpPost("AddFavorite")]
-        public Favorite AddFavorite(int userId, string yelpId, string restaurantName, string restaurantAddress, string img)
+        [HttpPost("addfavorite")]
+        public Favorite AddFavorite(int userId, string catagoryId, string restaurantName, string restaurantAddress, string img)
         {
             Favorite favorite = new Favorite();
             using (RestaurantContext favoriteContext = new RestaurantContext())
             {
                 favorite.UserId = userId;
-                favorite.YelpId = yelpId;
+                favorite.YelpId = catagoryId;
                 favorite.RestaurantName = restaurantName;
                 favorite.RestaurantAddress = restaurantAddress;
                 favorite.Img = img;
@@ -86,15 +101,15 @@ namespace RestaurantAGoGo
             }
         }
 
-        //removing the favorite from the favorite list
-        //api/favorite/deleteFav
-        [HttpDelete("deleteFav")]
-        public void RemoveFavorite(int userId, int favoriteId)
+       //removing the favorite from the favorite list
+        //api/Restaurant/deleteFav
+        [HttpDelete("deletefav")]
+        public void RemoveFavorite(int userId, int favId)
         {
             using (RestaurantContext restaurantContext = new RestaurantContext())
             {
                 Favorite deleteFav = new Favorite();
-                deleteFav = restaurantContext.Favorites.ToList().Find(d => d.UserId == userId && d.FavoriteId == d.favoriteId);
+                deleteFav = restaurantContext.Favorites.ToList().Find(d => d.UserId == userId && d.FavoriteId == favId);
                 restaurantContext.Remove(deleteFav);
                 restaurantContext.SaveChanges();
             }
@@ -106,9 +121,7 @@ namespace RestaurantAGoGo
 
 
 
-        //}
-    }
 }
-    
+   
 
 
