@@ -47,28 +47,24 @@ namespace RestaurantAGoGo
                 return user;
             }
         }
-
-
-
         //To edit the user information-not sure 
-
 
         //Add the user information
         //api/Restaurant/adduser
-        //[HttpPost("adduser")]
+        [HttpPost("adduser")]
 
-        //public User AddUser(string userName, string password)
-        //{
-        //    using (RestaurantContext restaurantContext = new RestaurantContext())
-        //    {
-        //        User user = new User();
-        //        user.UserName = userName;
-        //        user.Password = password;
-        //        restaurantContext.Add(user);
-        //        restaurantContext.SaveChanges();
-        //        return user;
-        //    }
-        //}
+        public User AddUser(string userName, string password)
+        {
+            using (RestaurantContext restaurantContext = new RestaurantContext())
+            {
+                User user = new User();
+                user.UserName = userName;
+                user.Password = password;
+                restaurantContext.Add(user);
+                restaurantContext.SaveChanges();
+                return user;
+            }
+        }
 
         //method to getting Favorite
         //api/Restaurant/getmyfavorites

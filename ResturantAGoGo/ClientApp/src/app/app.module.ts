@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RestaurantAllComponent } from './restaurant-all/restaurant-all.component';
 import { CategoryComponent } from './category/category.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { RegisterComponent } from './register/register.component';
+
 
 
 
@@ -24,7 +26,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
     FetchDataComponent,
     RestaurantAllComponent,
     CategoryComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    RegisterComponent,
     
   ],
   imports: [
@@ -36,7 +39,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'restaurant-all', component: RestaurantAllComponent },
-      { path: 'category', component: CategoryComponent }
+      { path: 'category', component: CategoryComponent },
+      { path: 'register', component: RegisterComponent }
     ])
   ],
   providers: [],

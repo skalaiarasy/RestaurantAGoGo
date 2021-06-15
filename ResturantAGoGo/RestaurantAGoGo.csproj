@@ -44,6 +44,8 @@
     <TypeScriptCompile Remove="ClientApp\src\app\datastore.service.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\favorites\favorites.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\favorites\favorites.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\register\register.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\register\register.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

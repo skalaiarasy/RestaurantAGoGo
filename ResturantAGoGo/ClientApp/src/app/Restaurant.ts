@@ -3,7 +3,7 @@ export interface Restaurant{
   address: string;
   city: string;
   state: string;
-  zip: number;
+  zip: string;
   type: Category[];
   yelpID: string;
   img: string;
