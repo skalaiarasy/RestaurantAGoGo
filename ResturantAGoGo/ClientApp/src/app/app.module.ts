@@ -11,6 +11,8 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RestaurantAllComponent } from './restaurant-all/restaurant-all.component';
 import { CategoryComponent } from './category/category.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { CategoryComponent } from './category/category.component';
     CounterComponent,
     FetchDataComponent,
     RestaurantAllComponent,
-    CategoryComponent
+    CategoryComponent,
+    FavoritesComponent
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -48,11 +48,11 @@ export class FavoritesComponent {
 
 //  }
 
-//removeFavorite(favoriteId: number, userId: number) {
-//    this.service.removeFavorite(favoriteId, userId);
-//    let thisCategory = this.favCategories.find(e => e.id == id);
-//    let index = this.favCategories.indexOf(thisCategory);
-//    this.favCategories.splice(index, 1);
-//    /*this.router.navigate(['NgFavorite']);*/
-//  }
+removeFavorite(favId: number, userId: number) {
+    this.service.removeFavorite(favId, userId);
+    //let thisCategory = this.favCategories.find(e => e.id == id);
+    //let index = this.favCategories.indexOf(thisCategory);
+    //this.favCategories.splice(index, 1);
+    this.router.navigate(['Favorites']);
+  }
 }

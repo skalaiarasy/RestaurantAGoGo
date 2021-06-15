@@ -9,6 +9,7 @@
   <h3>{{ r.name }}</h3>
   <h4>{{ r.address }}</h4>
   <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
+  <p>{{ r.YelpID }}</p>
   <p *ngFor="let t of r.type">{{ t.title }}</p>
   <button (click)="addFavorite(r.type)">Add to Favorites</button>
 </div>

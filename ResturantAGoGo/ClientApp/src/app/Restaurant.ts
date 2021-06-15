@@ -5,7 +5,9 @@ export interface Restaurant{
   state: string;
   zip: number;
   type: Category[];
+  yelpID: string;
   img: string;
+  url: string;
 }
 interface Category {
   alias: string;

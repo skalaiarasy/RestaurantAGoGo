@@ -35,11 +35,13 @@ export class RestaurantAllComponent implements OnInit{
             state: b.location.state,
             zip: b.location.zip_code,
             type: b.categories,
-            img: b.img,
+            yelpID: b.id,
+            img: b.image_url,
+            url: b.url,
           }
           this.restaurantList.push(restaurant);
         })
-        /*console.log(response)*/
+        console.log(response);
       });
   }
 
