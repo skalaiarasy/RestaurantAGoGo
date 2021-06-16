@@ -7,8 +7,15 @@
 </form>
 
 
+
 <div *ngIf="zip_code != ''">
-  <button class="nav-link text-dark" [routerLink]="['/random']">Click here for random</button>
+  Randomizer!
+  <div>
+    <button class="nav-link text-dark" [routerLink]="['/random',1]">Click here for one random restaurant</button>
+    <button class="nav-link text-dark" [routerLink]="['/random',3]">Click here for three random restaurants</button>
+    <button class="nav-link text-dark" [routerLink]="['/random',5]">Click here for five random restaurants</button>
+  </div>
+  Chose a list of nearby restaurants by category
   <button type="submit" name="categories" ngModel (click)="setCategoryClick()">All</button>
   <button type="submit" name="categories" ngModel (click)="setCategoryClick('mexican')">Mexican</button>
   <button type="submit" name="categories" ngModel (click)="setCategoryClick('chinese')">Chinese</button>

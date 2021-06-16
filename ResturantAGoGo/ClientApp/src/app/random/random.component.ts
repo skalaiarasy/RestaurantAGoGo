@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
 
@@ -11,43 +11,42 @@ import { RestaurantapiService } from '../restaurantapi.service';
 /** random component*/
 export class RandomComponent {
     /** random ctor */
-    constructor(public service: RestaurantapiService, public router: Router) {
+    constructor(public service: RestaurantapiService, public router: Router, private route: ActivatedRoute) {
 
   }
 
-  restaurant: Restaurant = {
-    name: "",
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    type: [],
-    yelpID: "",
-    img: "",
-    url: "",
-  }
+  restaurants: Restaurant[] = [];
 
   ngOnInit(): void {
-    this.getRandomRestaurant();
+    
+    
+      this.getRandomRestaurant();
   }
 
-  getRandomRestaurant():void {
+  getRandomRestaurant(): void {
     this.service.randomCall().subscribe(
       (response: any) => {
         console.log(response);
-        let result: any = response.businesses[Math.floor(Math.random() * response.businesses.length)];
-        console.log(response.businesses.length);
-        this.restaurant.name = result.name;
-        this.restaurant.address = result.location.address1;
-        this.restaurant.city = result.location.city;
-        this.restaurant.state = result.location.state;
-        this.restaurant.zip = result.location.zip_code;
-        this.restaurant.type = result.categories;
-        this.restaurant.yelpID = result.id;
-        this.restaurant.img = result.image_url;
-        this.restaurant.url = result.url;
-        console.log(this.restaurant);
+        for (var i = 0; i < (Number)(this.route.snapshot.paramMap.get("count")); i++) {
+
+
+          let result: any = response.businesses[Math.floor(Math.random() * response.businesses.length)];
+          console.log(response.businesses.length);
+          let newRestaurant: Restaurant = {
+            name: result.name,
+            address: result.location.address1,
+            city: result.location.city,
+            state: result.location.state,
+            zip: result.location.zip_code,
+            type: result.categories,
+            yelpID: result.id,
+            img: result.image_url,
+            url: result.url,
+          };
+          this.restaurants.push(newRestaurant);
+        }
       }
     )
   }
 }
+

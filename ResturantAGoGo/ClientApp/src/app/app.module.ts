@@ -47,7 +47,7 @@ import { RandomComponent } from './random/random.component';
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'favorites', component: FavoritesComponent },
-      { path: 'random', component: RandomComponent}
+      { path: 'random/:count', component: RandomComponent}
     ])
   ],
   providers: [],
