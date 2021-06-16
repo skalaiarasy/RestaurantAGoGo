@@ -48,6 +48,8 @@
     <TypeScriptCompile Remove="ClientApp\src\app\login\login.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\register\register.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\register\register.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\singleview\singleview.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\singleview\singleview.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

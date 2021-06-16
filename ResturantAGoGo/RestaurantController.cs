@@ -82,19 +82,27 @@ namespace RestaurantAGoGo
         [HttpPost("addfavorite")]
         public Favorite AddFavorite(int userId, string yelpID, string name, string address, string img)
         {
+            
             Favorite favorite = new Favorite();
             
             using (RestaurantContext favoriteContext = new RestaurantContext())
             {
-                favorite.UserId = userId;
-                favorite.YelpId = yelpID;
-                favorite.RestaurantName = name;
-                favorite.RestaurantAddress = address;
-                favorite.Img = img;
-                favoriteContext.Favorites.Add(favorite);
-                favoriteContext.SaveChanges();
-                return favorite;
-
+                Favorite result = favoriteContext.Favorites.ToList().Find(f => f.UserId == userId && f.YelpId == yelpID);
+                if (result == null)
+                {
+                    favorite.UserId = userId;
+                    favorite.YelpId = yelpID;
+                    favorite.RestaurantName = name;
+                    favorite.RestaurantAddress = address;
+                    favorite.Img = img;
+                    favoriteContext.Favorites.Add(favorite);
+                    favoriteContext.SaveChanges();
+                    return favorite;
+                }
+                else
+                {
+                    return result;
+                }
             }
         }
 

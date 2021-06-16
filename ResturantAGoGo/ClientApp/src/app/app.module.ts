@@ -43,7 +43,8 @@ import { LoginComponent } from './login/login.component';
       { path: 'restaurant-all', component: RestaurantAllComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'favorites', component: FavoritesComponent}
     ])
   ],
   providers: [],

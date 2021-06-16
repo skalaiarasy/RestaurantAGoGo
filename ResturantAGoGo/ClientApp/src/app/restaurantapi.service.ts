@@ -48,7 +48,7 @@ export class RestaurantapiService {
   }
 
   getMyFavorites(): any {
-    return this.http.get(this.baseUrl + "api/Restaurant/getmyfavorites");
+    return this.http.get(`api/Restaurant/getmyfavorites`);
   }
   
 
@@ -107,7 +107,7 @@ export class RestaurantapiService {
   //https://localhost:44334/api/Restaurant/deletefav?userId=1&favId=2
   removeFavorite(favoriteId: number, userId:number) {
     //need to fix this code
-    return this.http.delete(this.baseUrl + "/api/Restaurant/deletefav?userId=" + userId + "&favId=" + favoriteId).subscribe(data => {
+    return this.http.delete("/api/Restaurant/deletefav?userId=" + userId + "&favId=" + favoriteId).subscribe(data => {
       console.log(data);
     },
       error => {
