@@ -25,45 +25,13 @@ export class FavoritesComponent {
   //need to fix the code
 
   ngOnInit() {
-
-    //this.service.getAllRestaurants().subscribe(
-    //  (response: any) => {
-    //    this.restaurants = response;
-    //    console.log(this.restaurants);
-
     this.service.getMyFavorites().subscribe(
       (response: any) => {
         this.favList = response.filter((f: Favorite)=> f.userId == this.datastoreService.getUser().userId);
         console.log(this.favList);
-
-        //this.favList.forEach(
-        //  (b: Favorite) => {
-        //    this.favCategory.push(this.restaurants.find((r: Restaurant) => r.yelpID == b.yelpId));
-        //  }
-        //)
-
-        //this.favList.forEach((f: Favorite) => {
-        //  if (f.userId == this.service.getID()) { this.favCategory.push(this.restaurants.find((r: Restaurant) => r.id == f.Id)); }
-        //})
-        //console.log(this.favCategory);
       }
     )
   }
-
-  //)
-
-
-
-  //getFavorites(): void {
-  //  this.favList.forEach(
-  //    (b: Favorite) => {
-  //      this.favCategory.push(this.restaurants.find((r: Restaurant) => r.yelpID == b.yelpId));
-  //    }
-  //    )
-  //    }
-
-  
-
 
   addFavorite(restaurant: Restaurant) {
     this.service.addFavorite(restaurant);
@@ -75,7 +43,6 @@ export class FavoritesComponent {
     let thisCategory = this.favList.find(e => e.favoriteId == favId);
     let index = this.favList.indexOf(thisCategory);
     this.favList.splice(index, 1);
-    //this.router.navigate(['/favorites']);
   }
 
 

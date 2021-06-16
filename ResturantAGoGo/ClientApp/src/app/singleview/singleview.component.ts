@@ -1,5 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
+import { Router } from '@angular/router';
 import { Restaurant } from '../Restaurant';
+import { RestaurantapiService } from '../restaurantapi.service';
 
 @Component({
     selector: 'app-singleview',
@@ -26,7 +28,7 @@ export class SingleviewComponent {
   /*}*/
     
     /** singleview ctor */
-    constructor() {
+    constructor(private service: RestaurantapiService, public router: Router) {
 
     }
 }

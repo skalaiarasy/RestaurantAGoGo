@@ -29,36 +29,28 @@ export class RestaurantapiService {
     img:''
   };
 
-
   //To get the restaurants details 
 
   setZip(zip_code: string): any {   
     this.zip_code = zip_code;
   }
 
-
   setCategory(categories: string): any {
     this.categories = categories;
   }
 
-
   getAllRestaurants(): any {
     return this.http.get(`/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=${this.categories}`);
-   // return this.http.get(this.apiUrl); need to ask
   }
 
   getMyFavorites(): any {
     return this.http.get(`api/Restaurant/getmyfavorites`);
   }
   
-
-  
-
   currentId: number = -1;
 
   setID(newId: number): void {
     this.currentId = newId;
-
   }
 
   getID(): number {
@@ -78,8 +70,6 @@ export class RestaurantapiService {
     };
     
     const params = new HttpParams();
-    //need to fix this code
-    //console.log(this.baseUrl);
     return this.http.post("api/Restaurant/addfavorite?userId=" + newFavorite.userId + "&yelpID=" + newFavorite.yelpId + "&name=" + newFavorite.restaurantName + "&address=" + newFavorite.restaurantAddress +"&img=" + newFavorite.img, params)
       .subscribe(data => {
         console.log(data);
@@ -91,22 +81,8 @@ export class RestaurantapiService {
 
   }
 
-  //password: string = "";
-
-  //setPassword(newPass: string): void {
-  //  this.currentPass = newPass;
-
-  //}
-
-  //getPassword(): string {
-  //  return this.currentPass;
-  //}
-
-
   //Remove Favorite
-  //https://localhost:44334/api/Restaurant/deletefav?userId=1&favId=2
   removeFavorite(favoriteId: number, userId:number) {
-    //need to fix this code
     return this.http.delete("/api/Restaurant/deletefav?userId=" + userId + "&favId=" + favoriteId).subscribe(data => {
       console.log(data);
     },
@@ -114,6 +90,14 @@ export class RestaurantapiService {
         console.log(error);
       }
     );
+  }
+
+  //random
+  randomCall() {
+
+    return this.http.get(`/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=`);
+    
+    //return tempvar[Math.floor(Math.random() * tempvar.length)];
   }
 
 

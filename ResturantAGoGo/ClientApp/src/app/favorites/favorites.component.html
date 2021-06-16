@@ -1,1 +1,1 @@
-<div *ngFor="let f of favList">  <h1>{{f.restaurantName}}</h1>  <button (click)="removeFavorite(f.favoriteId,f.userId)">Remove from Favorites</button></div>
+<div *ngFor="let f of favList">  <h1>{{f.restaurantName}}</h1>  <h4>{{f.restaurantAddress}}</h4>  <!--<h5>{{f.city}} {{f.state}} {{f.zip_code}}</h5>-->  <button (click)="removeFavorite(f.favoriteId,f.userId)">Remove from Favorites</button></div>

@@ -14,6 +14,7 @@ import { CategoryComponent } from './category/category.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { RandomComponent } from './random/random.component';
 
 
 
@@ -29,7 +30,8 @@ import { LoginComponent } from './login/login.component';
     CategoryComponent,
     FavoritesComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    RandomComponent
     
   ],
   imports: [
@@ -37,14 +39,15 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: CategoryComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'restaurant-all', component: RestaurantAllComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'favorites', component: FavoritesComponent}
+      { path: 'favorites', component: FavoritesComponent },
+      { path: 'random', component: RandomComponent}
     ])
   ],
   providers: [],

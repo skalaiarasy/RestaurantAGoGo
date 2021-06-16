@@ -106,7 +106,7 @@ namespace RestaurantAGoGo
             }
         }
 
-       //removing the favorite from the favorite list
+        //removing the favorite from the favorite list
         //api/Restaurant/deleteFav
         [HttpDelete("deletefav")]
         public void RemoveFavorite(int userId, int favId)
