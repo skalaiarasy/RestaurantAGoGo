@@ -15,6 +15,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RandomComponent } from './random/random.component';
+import { SingleviewComponent } from './singleview/singleview.component';
 
 
 
@@ -31,8 +32,9 @@ import { RandomComponent } from './random/random.component';
     FavoritesComponent,
     RegisterComponent,
     LoginComponent,
-    RandomComponent
-    
+    RandomComponent,
+    SingleviewComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,7 +49,8 @@ import { RandomComponent } from './random/random.component';
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'favorites', component: FavoritesComponent },
-      { path: 'random/:count', component: RandomComponent}
+      { path: 'random/:count', component: RandomComponent },
+      { path: 'singleview/:id' , component: SingleviewComponent }
     ])
   ],
   providers: [],

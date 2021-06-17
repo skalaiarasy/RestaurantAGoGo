@@ -56,4 +56,6 @@ export class RestaurantAllComponent implements OnInit{
     this.router.navigate(['restuarant-all']);
   }
 
+  
+
 }

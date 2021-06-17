@@ -100,8 +100,23 @@ export class RestaurantapiService {
     //return tempvar[Math.floor(Math.random() * tempvar.length)];
   }
 
-
-
+  //viewSingleRestaurant(restaurant: Restaurant) {
+  //  let restaurantDetail: Restaurant = {
+  //    name: restaurant.name,
+  //    address: restaurant.address,
+  //    city: restaurant.city,
+  //    state: restaurant.state,
+  //    zip: restaurant.zip,
+  //    img: restaurant.img,
+  //    url: restaurant.url,
+  //    type: restaurant.type,
+  //    yelpID: restaurant.yelpID
+  //  }
+  //  return this.http.get();
+  //}
+  getRestaurantbyID(id: string): any {
+    return this.http.get(`yelp/businesses/${id}`);
+  }
 
 
 }

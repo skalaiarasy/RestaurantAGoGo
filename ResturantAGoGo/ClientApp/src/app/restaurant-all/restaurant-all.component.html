@@ -3,13 +3,16 @@
   <h3>Location:{{r.businesses.location}}</h3>
   <h3>Name of the Restaurant:{{r.businesses.name}}</h3>
 </div>-->
-<h1>Testing</h1>
+<h1>Welcome to Restaurant A Go Go!</h1>
+<h2>See a list of restaurants in your area</h2>
+<h3>Can't decide?  Choose a random restaurant to visit</h3>
 <!--*ngFor="let r of getRestaurants()-->
 <div style="border: 1px solid black" *ngFor="let r of restaurantList">
   <h3>{{ r.name }}</h3>
   <h4>{{ r.address }}</h4>
   <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
-  <p>{{ r.YelpID }}</p>
+  <p>{{ r.yelpID }}</p>
   <p *ngFor="let t of r.type">{{ t.title }}</p>
   <button (click)="addFavorite(r)">Add to Favorites</button>
+  <button class="nav-link text-dark" [routerLink]="['/singleview',r.yelpID]">View more details</button>
 </div>

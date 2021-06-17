@@ -1,5 +1,5 @@
 import { Component, OnInit, } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
 
@@ -28,7 +28,25 @@ export class SingleviewComponent {
   /*}*/
     
     /** singleview ctor */
-    constructor(private service: RestaurantapiService, public router: Router) {
+    constructor(private service: RestaurantapiService, public router: Router, public route: ActivatedRoute) {
 
-    }
+  }
+
+  ngOnInit() {
+    let id: string = this.route.snapshot.paramMap.get("id");
+    this.service.getRestaurantbyID(id).subscribe(
+      (response) => {
+        this.restaurant.name = response.name;
+        this.restaurant.address = response.location.address1;
+        this.restaurant.city = response.location.city;
+        this.restaurant.state = response.location.state;
+        this.restaurant.zip = response.location.zip_code;
+        this.restaurant.type = response.categories;
+        this.restaurant.yelpID = response.id;
+        this.restaurant.img = response.image_url;
+        this.restaurant.url = response.url;
+      }
+    )
+  }
 }
+
