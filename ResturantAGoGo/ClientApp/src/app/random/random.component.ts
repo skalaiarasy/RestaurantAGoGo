@@ -27,6 +27,7 @@ export class RandomComponent {
     this.service.randomCall().subscribe(
       (response: any) => {
         console.log(response);
+
         for (var i = 0; i < (Number)(this.route.snapshot.paramMap.get("count")); i++) {
 
 
