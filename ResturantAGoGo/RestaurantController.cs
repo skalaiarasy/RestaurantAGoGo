@@ -21,7 +21,7 @@ namespace RestaurantAGoGo
             User user = new User();
             using (RestaurantContext restaurantContext = new RestaurantContext())
             {
-                //user = restaurantContext.Users.ToList().Find(u => u.UserId == userId);
+                
                 return restaurantContext.Users.ToList();
             }
         }
@@ -48,10 +48,26 @@ namespace RestaurantAGoGo
             }
         }
         //To edit the user information-not sure 
+        //api/Restaurant/updateuser
+        //https://localhost:44334/api/Restaurant/updateuser?userName=Jean&password=54321
+        [HttpPut("updateuser")]
+        public User UpdateUserInfo(string userName, string password)
+        {
+            User user = new User();
+            using (RestaurantContext restaurantContext = new RestaurantContext())
+            {
+                user = restaurantContext.Users.ToList().Find(u => u.UserName == userName);
+                user.Password = password;
+                restaurantContext.SaveChanges();
+                return user;
+            }
+        }
 
-        //Add the user information
-        //api/Restaurant/adduser
-        [HttpPost("adduser")]
+        
+
+    //Add the user information
+    //api/Restaurant/adduser
+    [HttpPost("adduser")]
 
         public User AddUser(string userName, string password)
         {
@@ -119,8 +135,6 @@ namespace RestaurantAGoGo
                 restaurantContext.SaveChanges();
             }
         }
-
-
     }
 
 

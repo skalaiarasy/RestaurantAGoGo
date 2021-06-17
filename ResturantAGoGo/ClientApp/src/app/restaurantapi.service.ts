@@ -95,14 +95,8 @@ export class RestaurantapiService {
   //random
   randomCall() {
 
-    return this.http.get(`/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=`);
+    return this.http.get(`/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=`);   
     
-    //return tempvar[Math.floor(Math.random() * tempvar.length)];
   }
-
-
-
-
-
 }
 
