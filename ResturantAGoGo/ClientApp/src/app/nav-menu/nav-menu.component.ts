@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DatastoreService } from '../datastore.service';
+import { RestaurantapiService } from '../restaurantapi.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -14,5 +16,26 @@ export class NavMenuComponent {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  constructor(private restaurantapiservice: RestaurantapiService, private datastoreservice: DatastoreService) {
+    
+  }
+
+  checkLogin(): boolean {
+    let user = this.datastoreservice.getUser();
+    if (user.userName != null) {
+      if (this.restaurantapiservice.getID() != -1)
+      {
+        this.restaurantapiservice.setID(user.userId);
+        console.log(this.restaurantapiservice.getID());
+      
+      }
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 }

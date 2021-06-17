@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RandomComponent } from './random/random.component';
 import { SingleviewComponent } from './singleview/singleview.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -33,7 +34,8 @@ import { SingleviewComponent } from './singleview/singleview.component';
     RegisterComponent,
     LoginComponent,
     RandomComponent,
-    SingleviewComponent
+    SingleviewComponent,
+    LogoutComponent
 
   ],
   imports: [
@@ -50,7 +52,8 @@ import { SingleviewComponent } from './singleview/singleview.component';
       { path: 'login', component: LoginComponent },
       { path: 'favorites', component: FavoritesComponent },
       { path: 'random/:count', component: RandomComponent },
-      { path: 'singleview/:id' , component: SingleviewComponent }
+      { path: 'singleview/:id', component: SingleviewComponent },
+      { path: 'logout', component: LogoutComponent }
     ])
   ],
   providers: [],

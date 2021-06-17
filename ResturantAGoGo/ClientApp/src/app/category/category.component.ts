@@ -14,7 +14,7 @@ import { DatastoreService } from '../datastore.service';
 export class CategoryComponent {
 
   /*restByCatList: Restaurant[] = [];*/
-  zip_code: string = '';
+  zip_code: number = -1;
   categories: string = '';
 
     /** category ctor */
@@ -25,6 +25,10 @@ export class CategoryComponent {
     console.log(this.datastoreservice.getUser());
     this.zip_code = form.form.value.zip_code;
     console.log(this.zip_code);
+    if (this.zip_code == undefined)
+    {
+      this.zip_code = -1;
+    }
     this.service.setZip(this.zip_code);
   }
 

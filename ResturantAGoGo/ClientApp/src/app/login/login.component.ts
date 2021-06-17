@@ -24,9 +24,11 @@ export class LoginComponent {
 
   constructor(private service: AuthenticateService, private tokenStorage: DatastoreService, public router: Router, public restaurantService: RestaurantapiService) { }
   ngOnInit(): void {
+    console.log(this.tokenStorage.getUser());
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      
     }
   }
   onSubmit(): void {
@@ -40,6 +42,7 @@ export class LoginComponent {
         this.roles = this.tokenStorage.getUser().roles;
         this.restaurantService.setID(data.userId);
         //this.reloadPage();
+       
         this.router.navigate(['/category']);
       },
       err => {

@@ -11,7 +11,7 @@ import { DatastoreService } from './datastore.service';
 
 export class RestaurantapiService {
 
-  zip_code = "";
+  zip_code = 0;
   categories = "";
   apiUrl: string = `/yelp/businesses/search?location=${this.zip_code}&sort_by=distance&limit=50&term=restaurants&radius=40000&categories=${this.categories}`;
   constructor(private http: HttpClient, private datastore: DatastoreService, public router: Router) {
@@ -31,7 +31,7 @@ export class RestaurantapiService {
 
   //To get the restaurants details 
 
-  setZip(zip_code: string): any {   
+  setZip(zip_code: number): any {   
     this.zip_code = zip_code;
   }
 

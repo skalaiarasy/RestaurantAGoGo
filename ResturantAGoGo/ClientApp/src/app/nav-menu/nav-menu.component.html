@@ -31,11 +31,14 @@
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/favorites']">My Favorites</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="checkLogin() == false" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/register']">Register</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="checkLogin() == false" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="checkLogin() == true" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/logout']">Logout</a>
           </li>
         </ul>
       </div>
