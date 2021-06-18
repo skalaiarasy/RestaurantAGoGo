@@ -1,6 +1,6 @@
 <h1>Welcome to Restaurant A Go Go!</h1>
-<h2>See a list of restaurants in your area</h2>
-<h3>Can't decide?  Choose a random restaurant to visit</h3>
+
+
 <form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
   <div>
     <input name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
@@ -9,32 +9,48 @@
   <!--Unkown link?
   <a href="C:\Users\jms_s\Desktop\Grand Circus\Group Project\FinalProject\RestaurantAGoGo\ResturantAGoGo\ClientApp\src\app\category\category.component.html">C:\Users\jms_s\Desktop\Grand Circus\Group Project\FinalProject\RestaurantAGoGo\ResturantAGoGo\ClientApp\src\app\category\category.component.html</a>-->
 </form>
-
-
-
+<!--https: //files.slack.com/files-pri/T04UPFZ31-F025XL5Q8G1/image.png-->
 <div *ngIf="zip_code >= 0">
-  Randomizer!
   <div>
-    <button class="nav-link text-dark" [routerLink]="['/random',1]">Click here for one random restaurant</button>
-    <button class="nav-link text-dark" [routerLink]="['/random',3]">Click here for three random restaurants</button>
-    <button class="nav-link text-dark" [routerLink]="['/random',5]">Click here for five random restaurants</button>
+    <h2>See a list of restaurants in your area</h2>
+    <h4>Choose a list of nearby restaurants by category</h4><br />
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick()">All</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('mexican')">Mexican</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('chinese')">Chinese</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('indpak')">Indian</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('bbq')">Barbeque</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('hotdogs')">Fast Food</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('pizza')">Pizza</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('italian')">Italian</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('sandwiches')">Sandwiches</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('breakfast_brunch')">Breakfast</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('mideastern')">Middle Eastern</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('thai')">Thai</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('newamerican')">New American</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('tradamerican')">Traditional American</button>
+      <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('vegetarian')">Vegetarian</button>
+    </div>
   </div>
-  Chose a list of nearby restaurants by category
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick()">All</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('mexican')">Mexican</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('chinese')">Chinese</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('indpak')">Indian</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('bbq')">Barbeque</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('hotdogs')">Fast Food</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('pizza')">Pizza</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('italian')">Italian</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('sandwiches')">Sandwiches</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('breakfast_brunch')">Breakfast</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('mideastern')">Middle Eastern</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('thai')">Thai</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('newamerican')">New American</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('tradamerican')">Traditional American</button>
-  <button type="submit" name="categories" ngModel (click)="setCategoryClick('vegetarian')">Vegetarian</button>
+
+  <div>
+    <h3>Can't decide?  Choose a random restaurant to visit</h3>
+    Randomizer!
+    <div class="row">
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',1]">Click here for one random restaurant</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',3]">Click here for three random restaurants</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',5]">Click here for five random restaurants</button>
+    </div>
+  </div>
+
 </div>
 
 

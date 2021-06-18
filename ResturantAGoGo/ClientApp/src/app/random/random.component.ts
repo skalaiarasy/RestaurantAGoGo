@@ -46,6 +46,8 @@ export class RandomComponent {
             rating: result.rating,
             phone: result.display_phone,
             price: result.price,
+            latitude: result.coordinates.latitude,
+            longitude: result.coordinates.longitude
           };
           this.restaurants.push(newRestaurant);
         }
