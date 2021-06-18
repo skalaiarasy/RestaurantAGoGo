@@ -6,7 +6,7 @@ import { RestaurantapiService } from '../restaurantapi.service';
 @Component({
     selector: 'app-restaurant-all',
     templateUrl: './restaurant-all.component.html',
-    styleUrls: ['./restaurant-all.component.scss']
+    styleUrls: ['./restaurant-all.component.css']
 })
   
 /** RestaurantAll component*/
@@ -44,9 +44,12 @@ export class RestaurantAllComponent implements OnInit{
         console.log(response);
       });
   }
+  /*light2: boolean = true;*/
 
   addFavorite(restaurant:Restaurant) {
     this.service.addFavorite(restaurant);
+    ///* this.light2 = !this.light2; tried, didn't work
+    //this.service.toggleLight2(restaurant);
     this.router.navigate(['restaurant-all']);
 
   }
@@ -56,6 +59,9 @@ export class RestaurantAllComponent implements OnInit{
     this.router.navigate(['restuarant-all']);
   }
 
-  
+  light2: boolean = true; 
 
+  toggleLight2(restaurant:Restaurant): void {
+    this.light2 = !this.light2;
+  }
 }

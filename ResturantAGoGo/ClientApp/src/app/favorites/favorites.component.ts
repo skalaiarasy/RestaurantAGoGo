@@ -45,6 +45,8 @@ export class FavoritesComponent {
     this.favList.splice(index, 1);
   }
 
+  
+
 
 }
 

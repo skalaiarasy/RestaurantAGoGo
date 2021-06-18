@@ -56,10 +56,12 @@ export class RestaurantapiService {
   getID(): number {
     return this.currentId;
   }
+  
   //https://localhost:44334/api/Restaurant/addfavorite?userId=3&yelpID=mex123&restaurantName=Mexican&restaurantAddress=Troy&img=sdds233
   addFavorite(restaurant: Restaurant) {
     console.log(this.datastore.getUser());
     this.setID(this.datastore.getUser().userId);
+    /*this.light2 = !this.light2; //*//*checking if light toggle works*/
     let newFavorite : Favorite = {
       favoriteId: null,
       userId: this.currentId,
@@ -117,6 +119,10 @@ export class RestaurantapiService {
     return this.http.get(`yelp/businesses/${id}`);
   }
 
+  //light2: boolean = true;
 
+  //toggleLight2(restaurant:Restaurant): void {
+  //  this.light2 = !this.light2;
+  //}
 }
 

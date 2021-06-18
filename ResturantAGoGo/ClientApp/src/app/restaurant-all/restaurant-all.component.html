@@ -12,6 +12,7 @@
   <h4>{{ r.address }}</h4>
   <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
   <p *ngFor="let t of r.type">{{ t.title }}</p>
-  <button (click)="addFavorite(r)">Add to Favorites</button>
+  <button [ngClass]="light2?'lighton':'lightoff'" (click)="addFavorite(r); toggleLight2()">Add to Favorites</button>
   <button class="nav-link text-dark" [routerLink]="['/singleview',r.yelpID]">View more details</button>
 </div>
+
