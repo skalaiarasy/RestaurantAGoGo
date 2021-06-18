@@ -13,6 +13,7 @@ import { RestaurantapiService } from '../restaurantapi.service';
 export class RestaurantAllComponent implements OnInit{
 
   restaurantList: Restaurant[] = [];
+    currentId: number;
 
     /** RestaurantAll ctor */
     constructor(private service:RestaurantapiService, private route:ActivatedRoute, public router:Router ) {
@@ -38,6 +39,11 @@ export class RestaurantAllComponent implements OnInit{
             yelpID: b.id,
             img: b.image_url,
             url: b.url,
+            rating: b.rating,
+            phone: b.display_phone,
+            price: b.price,
+            latitude: b.latitude,
+            longitude: b.longitude
           }
           this.restaurantList.push(restaurant);
         })
@@ -46,12 +52,28 @@ export class RestaurantAllComponent implements OnInit{
   }
   /*light2: boolean = true;*/
 
-  addFavorite(restaurant:Restaurant) {
-    this.service.addFavorite(restaurant);
-    ///* this.light2 = !this.light2; tried, didn't work
-    //this.service.toggleLight2(restaurant);
-    this.router.navigate(['restaurant-all']);
+  
 
+  addFavorite(restaurant: Restaurant) {
+    //getID(): number {
+    //  return this.currentId;
+    //}
+    
+    this.currentId = this.service.getID();
+    
+    if (this.currentId == undefined)
+    {
+      this.router.navigate(['login']);
+    }
+    else
+    {
+      this.service.addFavorite(restaurant);
+      ///* this.light2 = !this.light2; tried, didn't work
+      //this.service.toggleLight2(restaurant);
+      this.router.navigate(['restaurant-all']);
+    }
+    this.service.addFavorite(restaurant);
+    this.router.navigate(['restaurant-all']);
   }
 
   removeFavorite(userId: number, favId:number) {

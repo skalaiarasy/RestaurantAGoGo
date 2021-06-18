@@ -8,6 +8,11 @@ export interface Restaurant{
   yelpID: string;
   img: string;
   url: string;
+  rating: number;
+  phone: string;
+  price: string;
+  latitude: number;
+  longitude: number;
 }
 interface Category {
   alias: string;

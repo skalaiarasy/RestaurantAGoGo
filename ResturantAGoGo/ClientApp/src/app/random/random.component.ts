@@ -43,6 +43,9 @@ export class RandomComponent {
             yelpID: result.id,
             img: result.image_url,
             url: result.url,
+            rating: result.rating,
+            phone: result.display_phone,
+            price: result.price,
           };
           this.restaurants.push(newRestaurant);
         }

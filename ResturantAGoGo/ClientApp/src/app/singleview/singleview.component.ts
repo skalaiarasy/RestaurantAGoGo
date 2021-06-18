@@ -21,6 +21,11 @@ export class SingleviewComponent {
     yelpID: "",
     img: "",
     url: "",
+    rating: 0,
+    phone: "",
+    price: "",
+    latitude: 0,
+    longitude: 0,
   }
   //interface Category {
   //  alias: "",
@@ -45,6 +50,11 @@ export class SingleviewComponent {
         this.restaurant.yelpID = response.id;
         this.restaurant.img = response.image_url;
         this.restaurant.url = response.url;
+        this.restaurant.rating = response.rating;
+        this.restaurant.phone = response.display_phone;
+        this.restaurant.price = response.price;
+        this.restaurant.latitude = response.coordinates.latitude;
+        this.restaurant.longitude = response.coordinates.longitude;
       }
     )
   }

@@ -1,8 +1,13 @@
 <h3>{{ restaurant.name }}</h3>
 <h4>{{ restaurant.address }}</h4>
 <h4>{{ restaurant.city }} {{ restaurant.state }} {{ restaurant.zip }}</h4>
+<h4>Rating: {{ restaurant.rating }}</h4>
+<h4>{{ restaurant.phone }}</h4>
+<h4>Price: {{ restaurant.price }}</h4>
+<p>Price Per Person: $=Under $10, $$=$11-$30, $$$=$31-$60, $$$$=over $61</p>
 <img width="200" height="200" src="{{ restaurant.img }}" />
 <br />
 <div>
   <a href="{{ restaurant.url }}">Click here for more info</a>
 </div>
+<a href="https://www.google.com/maps/place/ {{ restaurant.address }}+{{ restaurant.city }}+{{ restaurant.zip }}">Click here for map</a>
