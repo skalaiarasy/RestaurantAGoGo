@@ -59,21 +59,21 @@ export class RestaurantAllComponent implements OnInit{
     //  return this.currentId;
     //}
     
-    this.currentId = this.service.getID();
+    //this.currentId = this.service.getID();
     
-    if (this.currentId == undefined)
-    {
-      this.router.navigate(['login']);
-    }
-    else
-    {
+    //if (this.currentId == undefined)
+    //{
+    //  this.router.navigate(['login']);
+    //}
+    //else
+    /*{*/
       this.service.addFavorite(restaurant);
       ///* this.light2 = !this.light2; tried, didn't work
       //this.service.toggleLight2(restaurant);
       this.router.navigate(['restaurant-all']);
-    }
-    this.service.addFavorite(restaurant);
-    this.router.navigate(['restaurant-all']);
+    /*}*/
+    //this.service.addFavorite(restaurant);
+    //this.router.navigate(['restaurant-all']);
   }
 
   removeFavorite(userId: number, favId:number) {
@@ -81,9 +81,9 @@ export class RestaurantAllComponent implements OnInit{
     this.router.navigate(['restuarant-all']);
   }
 
-  light2: boolean = true; 
+  //light2: boolean = true; 
 
-  toggleLight2(restaurant:Restaurant): void {
-    this.light2 = !this.light2;
-  }
+  //toggleLight2(restaurant:Restaurant): void {
+  //  this.light2 = !this.light2;
+  //}
 }
