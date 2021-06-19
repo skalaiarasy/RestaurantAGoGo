@@ -22,6 +22,7 @@ export class NavMenuComponent {
     
   }
 
+  whoisloggedin: string = "";
   checkLogin(): boolean {
     let user = this.datastoreservice.getUser();
     if (user.userName != null) {
@@ -29,6 +30,8 @@ export class NavMenuComponent {
       {
         this.restaurantapiservice.setID(user.userId);
         console.log(this.restaurantapiservice.getID());
+        this.whoisloggedin = user.userId;
+        console.log(this.whoisloggedin);
       
       }
       return true;
