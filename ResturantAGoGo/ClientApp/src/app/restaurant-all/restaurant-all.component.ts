@@ -13,6 +13,7 @@ import { RestaurantapiService } from '../restaurantapi.service';
 export class RestaurantAllComponent implements OnInit{
 
   restaurantList: Restaurant[] = [];
+  filteredRestaurantLists: Restaurant[] = [];
     currentId: number;
 
     /** RestaurantAll ctor */
@@ -45,6 +46,7 @@ export class RestaurantAllComponent implements OnInit{
             latitude: b.latitude,
             longitude: b.longitude
           }
+          this.filteredRestaurantLists.push(restaurant);
           this.restaurantList.push(restaurant);
         })
         console.log(response);
@@ -76,11 +78,25 @@ export class RestaurantAllComponent implements OnInit{
     //this.router.navigate(['restaurant-all']);
   }
 
+
   removeFavorite(userId: number, favId:number) {
     this.service.removeFavorite(userId,favId);
     this.router.navigate(['restuarant-all']);
   }
 
+  private _listFilter: string = '';
+  get listFilter() {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredRestaurantLists = this.filterAllRestaurant(value);
+  }
+  filterAllRestaurant(filterBy: string): Restaurant[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.restaurantList.filter((oneRestaurant: Restaurant) =>
+      oneRestaurant.name.toLocaleLowerCase().includes(filterBy));
+  }
   //light2: boolean = true; 
 
   //toggleLight2(restaurant:Restaurant): void {

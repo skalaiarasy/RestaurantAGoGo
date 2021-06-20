@@ -30,7 +30,7 @@ export class NavMenuComponent {
       {
         this.restaurantapiservice.setID(user.userId);
         console.log(this.restaurantapiservice.getID());
-        this.whoisloggedin = user.userId;
+        this.whoisloggedin = user.userName;
         console.log(this.whoisloggedin);
       
       }
