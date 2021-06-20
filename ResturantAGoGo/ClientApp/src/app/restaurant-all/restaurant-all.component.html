@@ -15,8 +15,7 @@
         <h5>{{ r.address }}</h5>
         <h5>{{ r.city }} {{ r.state }} {{ r.zip }}</h5>
         <p class="horizontal" *ngFor="let t of r.type">{{ t.title }}</p>
-        <!--<a class="btn btn-primary mr-3" [ngClass]="light2?'lighton':'lightoff'" (click)="addFavorite(r); toggleLight2(r)">Add to Favorites</a>-->
-        <a class="btn btn-primary mr-3" (click)="addFavorite(r)">Add to Favorites</a>
+        <a class="btn btn-primary mr-3" [ngClass]="checkFavorite(r)?'lighton':'lightoff'" (click)="addFavorite(r)">Add to Favorites</a>
         <a class="btn btn-primary" [routerLink]="['/singleview',r.yelpID]">View more details</a>
       </div>
     </div>

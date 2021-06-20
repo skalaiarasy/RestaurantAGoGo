@@ -35,15 +35,23 @@ export class LoginComponent {
     const { username, password } = this.form;
     this.service.login(username, password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        this.restaurantService.setID(data.userId);
-        //this.reloadPage();
-       
-        this.router.navigate(['/category']);
+        console.log(data);
+        if (data == null) {
+          this.errorMessage = "invalid login";
+          this.isLoginFailed = true;
+        }
+        else {
+          this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveUser(data);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.roles = this.tokenStorage.getUser().roles;
+          this.restaurantService.setID(data.userId);
+          //this.reloadPage();
+
+          this.router.navigate(['/category']);
+        }
+        
       },
       err => {
         this.errorMessage = err.error.message;

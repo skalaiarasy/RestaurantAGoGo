@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Favorite } from '../Favorite';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
 
@@ -15,6 +16,7 @@ export class RestaurantAllComponent implements OnInit{
   restaurantList: Restaurant[] = [];
   filteredRestaurantLists: Restaurant[] = [];
     currentId: number;
+  favList: Favorite[];
 
     /** RestaurantAll ctor */
     constructor(private service:RestaurantapiService, private route:ActivatedRoute, public router:Router ) {
@@ -23,8 +25,18 @@ export class RestaurantAllComponent implements OnInit{
 
   ngOnInit(): void {
     this.getRestaurants();
+    this.getFavorites();
   }
-  
+
+  getFavorites(): void {
+    this.service.getMyFavorites().subscribe(
+      (response: any) => {
+        this.favList = response.filter((f: Favorite) => f.userId == this.service.getID());
+        console.log(this.favList);
+      }
+    )
+  }
+
   getRestaurants(): void{
     this.service.getAllRestaurants().subscribe(
       (response: any) => {
@@ -53,7 +65,15 @@ export class RestaurantAllComponent implements OnInit{
       });
   }
   /*light2: boolean = true;*/
-
+  checkFavorite(restaurant: Restaurant): boolean {
+    let result = this.favList.find(f => f.yelpId == restaurant.yelpID);
+    if (result == null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
   
 
   addFavorite(restaurant: Restaurant) {
@@ -62,18 +82,27 @@ export class RestaurantAllComponent implements OnInit{
     //}
     
     //this.currentId = this.service.getID();
-    
-    //if (this.currentId == undefined)
-    //{
-    //  this.router.navigate(['login']);
-    //}
-    //else
-    /*{*/
+    console.log(this.service.getID());
+    if (this.service.getID() == -1)
+    {
+      this.router.navigate(['login']);
+    }
+    else
+    {
       this.service.addFavorite(restaurant);
+      let newfavorite: Favorite = {
+        yelpId: restaurant.yelpID,
+        restaurantName: "",
+        restaurantAddress: "",
+        img: "",
+        favoriteId: 0,
+        userId: 0
+      };
+      this.favList.push(newfavorite);
       ///* this.light2 = !this.light2; tried, didn't work
       //this.service.toggleLight2(restaurant);
       this.router.navigate(['restaurant-all']);
-    /*}*/
+    }
     //this.service.addFavorite(restaurant);
     //this.router.navigate(['restaurant-all']);
   }

@@ -61,6 +61,10 @@ export class RestaurantapiService {
   addFavorite(restaurant: Restaurant) {
     console.log(this.datastore.getUser());
     this.setID(this.datastore.getUser().userId);
+    //if (this.datastore.getUser().userId == null) {
+    //  this.router.navigate(['/login']);
+    //  console.log("i'm here");
+    //}
     /*this.light2 = !this.light2; //*//*checking if light toggle works*/
     let newFavorite : Favorite = {
       favoriteId: null,
