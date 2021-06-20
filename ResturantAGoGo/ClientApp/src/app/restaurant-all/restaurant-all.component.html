@@ -2,9 +2,9 @@
 <h4 class="card-text text-center">See a list of restaurants in your area</h4>
 
 <div class="form-group">
-  <label for="search-text">Search text</label>
+  <label for="search-text"></label>
   <input type="email" class="form-control" id="search-text"
-         [(ngModel)]="listFilter" placeholder="Enter Text to search">
+         [(ngModel)]="listFilter" placeholder="Search for a restaurant in your area here">
 </div>
 <div class="row mb-3" *ngFor="let r of filteredRestaurantLists">
 <!--<div class="row mb-3" *ngFor="let r of restaurantList">-->
