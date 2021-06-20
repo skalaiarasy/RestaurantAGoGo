@@ -12,6 +12,15 @@
 <!--https: //files.slack.com/files-pri/T04UPFZ31-F025XL5Q8G1/image.png-->
 <div *ngIf="zip_code >= 0">
   <div>
+    <div>
+      <h3>Can't decide?  Choose a random restaurant to visit</h3>
+      Randomizer!
+      <div class="row">
+        <button class="col btn btn-primary mr-2" [routerLink]="['/random',1]">Click here for one random restaurant</button>
+        <button class="col btn btn-primary mr-2" [routerLink]="['/random',3]">Click here for three random restaurants</button>
+        <button class="col btn btn-primary mr-2" [routerLink]="['/random',5]">Click here for five random restaurants</button>
+      </div>
+    </div>
     <h2>See a list of restaurants in your area</h2>
     <h4>Choose a list of nearby restaurants by category</h4><br />
     <div class="row">
@@ -38,16 +47,6 @@
       <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('newamerican')">New American</button>
       <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('tradamerican')">Traditional American</button>
       <button class="col btn btn-primary mr-2 mb-2" type="submit" name="categories" ngModel (click)="setCategoryClick('vegetarian')">Vegetarian</button>
-    </div>
-  </div>
-
-  <div>
-    <h3>Can't decide?  Choose a random restaurant to visit</h3>
-    Randomizer!
-    <div class="row">
-      <button class="col btn btn-primary mr-2" [routerLink]="['/random',1]">Click here for one random restaurant</button>
-      <button class="col btn btn-primary mr-2" [routerLink]="['/random',3]">Click here for three random restaurants</button>
-      <button class="col btn btn-primary mr-2" [routerLink]="['/random',5]">Click here for five random restaurants</button>
     </div>
   </div>
 

@@ -26,9 +26,6 @@
             <a class="nav-link text-dark" [routerLink]="['/category']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/restaurant-all']">View Restaurants</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/favorites']">My Favorites</a>
           </li>
           <li class="nav-item" *ngIf="checkLogin() == false" [routerLinkActive]="['link-active']">
