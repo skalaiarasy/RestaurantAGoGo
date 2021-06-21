@@ -36,7 +36,7 @@ export class CategoryComponent {
     this.categories = categories;
     console.log(this.categories);
     this.service.setCategory(this.categories);
-    this.router.navigate(['/restaurant-all']);
+    this.router.navigate(['/restaurant-all',this.zip_code,this.categories]);
   }
 
 }

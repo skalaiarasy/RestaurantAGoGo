@@ -19,7 +19,7 @@ export class RandomComponent {
 
   ngOnInit(): void {
     
-    
+    this.service.setZip(+this.route.snapshot.paramMap.get("zip"));
       this.getRandomRestaurant();
   }
 

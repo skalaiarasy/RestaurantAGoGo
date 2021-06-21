@@ -1,16 +1,14 @@
 <h2 class="card-title text-center">Welcome to Restaurant A Go Go!</h2>
 <h4 class="card-text text-center">See a list of restaurants in your area</h4>
 
-<div class="form-group">
+<div class="form-group container" style="width: 35%">
   <label for="search-text"></label>
   <input type="email" class="form-control" id="search-text"
          [(ngModel)]="listFilter" placeholder="Search for a restaurant in your area here">
 </div>
 <div class="restaurantcontainer">
   <div class="row mb-3" *ngFor="let r of filteredRestaurantLists">
-    <!--<div class="row mb-3" *ngFor="let r of restaurantList">-->
     <div class="container h-100">
-      <!--col-md-6-->
       <div class="card card-block">
         <div class="card-body">
           <h3>{{ r.name }}</h3>

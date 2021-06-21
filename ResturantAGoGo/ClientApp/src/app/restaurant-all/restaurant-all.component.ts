@@ -26,6 +26,9 @@ export class RestaurantAllComponent implements OnInit{
   /*space: string = "-";*/
 
   ngOnInit(): void {
+    this.service.setCategory(this.route.snapshot.paramMap.get("category"));
+    this.service.setZip( +this.route.snapshot.paramMap.get("zip"));
+  
     this.getRestaurants();
     this.getFavorites();
   }

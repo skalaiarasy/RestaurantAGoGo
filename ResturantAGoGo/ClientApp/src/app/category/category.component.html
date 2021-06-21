@@ -2,12 +2,12 @@
 
 
 <form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
-  <div>
-    <input name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
-    <button class="btn btn-primary mr-2">Submit</button>
+  <div class="input-group mb-3" style="width: 30%;">
+    <input class="form-control" name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
+    <div class="input-group-prepend">
+      <button class="btn btn-primary mr-2">Submit</button>
+    </div>
   </div>
-  <!--Unkown link?
-  <a href="C:\Users\jms_s\Desktop\Grand Circus\Group Project\FinalProject\RestaurantAGoGo\ResturantAGoGo\ClientApp\src\app\category\category.component.html">C:\Users\jms_s\Desktop\Grand Circus\Group Project\FinalProject\RestaurantAGoGo\ResturantAGoGo\ClientApp\src\app\category\category.component.html</a>-->
 </form>
 <!--https: //files.slack.com/files-pri/T04UPFZ31-F025XL5Q8G1/image.png-->
 <div *ngIf="zip_code >= 0">
@@ -16,7 +16,7 @@
     <h2>See a list of restaurants in your area</h2>
     <h4>Choose a list of nearby restaurants by category</h4><br />
     <div class="row">
-      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick()">All</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('')">All</button>
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('mexican')">Mexican</button>
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('chinese')">Chinese</button>
     </div>
@@ -50,9 +50,9 @@
     <h3>Can't decide?  Choose a random restaurant to visit</h3>
     Randomizer!
     <div class="row">
-      <button class="col btn btn-primary mr-2" [routerLink]="['/random',1]">Click here for one random restaurant</button>
-      <button class="col btn btn-primary mr-2" [routerLink]="['/random',3]">Click here for three random restaurants</button>
-      <button class="col btn btn-primary mr-2" [routerLink]="['/random',5]">Click here for five random restaurants</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',1,zip_code]">Click here for one random restaurant</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',3,zip_code]">Click here for three random restaurants</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',5,zip_code]">Click here for five random restaurants</button>
     </div>
   </div>
 </div>
