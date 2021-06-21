@@ -23,6 +23,8 @@ export class RestaurantAllComponent implements OnInit{
     
   }
 
+  /*space: string = "-";*/
+
   ngOnInit(): void {
     this.getRestaurants();
     this.getFavorites();
