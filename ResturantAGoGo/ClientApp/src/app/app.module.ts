@@ -50,7 +50,7 @@ import { LogoutComponent } from './logout/logout.component';
       { path: 'category', component: CategoryComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'favorites/:zip/:category', component: FavoritesComponent },
+      { path: 'favorites', component: FavoritesComponent },
       { path: 'random/:count/:zip', component: RandomComponent },
       { path: 'singleview/:id', component: SingleviewComponent },
       { path: 'logout', component: LogoutComponent }
