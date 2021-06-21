@@ -1,0 +1,16 @@
+<div *ngFor="let r of restaurants">
+  <h3>{{r.name}}</h3>
+  <h4>{{ r.address }}</h4>
+  <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
+  <h4>{{ r.phone }}</h4>
+  <h4>Rating: {{ r.rating }} of 5</h4>
+  <h4>Price: {{ r.price }}</h4>
+  <p>Price Per Person: $=Under $10, $$=$11-$30, $$$=$31-$60, $$$$=over $61</p>
+  <img width="200" height="200" src="{{ r.img }}" />
+  <br />
+  <div>
+    <a href="{{ r.url }}" >Click here for more info</a>
+  </div>
+  <a href="https://www.google.com/maps/place/ {{ r.address }}+{{ r.city }}+{{ r.zip }}" target="_blank">Click here for map</a>
+</div>
+

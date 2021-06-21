@@ -3,10 +3,16 @@ export interface Restaurant{
   address: string;
   city: string;
   state: string;
-  zip: number;
-  openNow: boolean;
+  zip: string;
   type: Category[];
+  yelpID: string;
   img: string;
+  url: string;
+  rating: number;
+  phone: string;
+  price: string;
+  latitude: number;
+  longitude: number;
 }
 interface Category {
   alias: string;

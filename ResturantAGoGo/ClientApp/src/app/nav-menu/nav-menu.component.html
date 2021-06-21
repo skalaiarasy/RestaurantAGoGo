@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">ResturantAGoGo</a>
+      <a class="navbar-brand" [routerLink]="['/']">Welcome {{ whoisloggedin }}</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -23,16 +23,19 @@
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-dark" [routerLink]="['/category']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-dark" [routerLink]="['/favorites']">My Favorites</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+          <li class="nav-item" *ngIf="checkLogin() == false" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/register']">Register</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/restaurant-all']">View Restaurants</a>
+          <li class="nav-item" *ngIf="checkLogin() == false" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="checkLogin() == true" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/logout']">Logout {{ whoisloggedin }}</a>
           </li>
         </ul>
       </div>

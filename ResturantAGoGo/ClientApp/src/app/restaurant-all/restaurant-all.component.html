@@ -1,16 +1,35 @@
-<!--<div style="border: 1px solid red">RestaurantAll Component</div>
-<div *ngFor="let r of getRestaurants()" slice 1:2>
-  <h3>Location:{{r.businesses.location}}</h3>
-  <h3>Name of the Restaurant:{{r.businesses.name}}</h3>
-</div>-->
-<h1>Testing</h1>
-<!--*ngFor="let r of getRestaurants()-->
-<div style="border: 1px solid black" *ngFor="let r of restaurantList">
-  <h3> {{ r.name }}</h3>
-  <h4>{{ r.address }}</h4>
-  <h4>{{ r.city }} {{ r.state }} {{ r.zip }}</h4>
-  <p>{{ r.openNow }}</p>
-  <p *ngFor="let t of r.type">{{ t.title }}</p>
-  <p>{{ r.img }}</p>
+<h2 class="card-title text-center">Welcome to Restaurant A Go Go!</h2>
+<h4 class="card-text text-center">See a list of restaurants in your area</h4>
+
+<div class="form-group container" style="width: 35%">
+  <label for="search-text"></label>
+  <input type="email" class="form-control" id="search-text"
+         [(ngModel)]="listFilter" placeholder="Search for a restaurant in your area here">
+</div>
+<div class="restaurantcontainer">
+  <div class="row mb-3" *ngFor="let r of filteredRestaurantLists">
+    <div class="container h-100">
+      <div class="card card-block">
+        <div class="card-body">
+          <h3>{{ r.name }}</h3>
+          <h5>{{ r.address }}</h5>
+          <h5>{{ r.city }} {{ r.state }} {{ r.zip }}</h5>
+          <div class="listHorizontal">
+            <p *ngFor="let t of r.type"> {{ t.title }}&emsp;</p>
+          </div>
+          <a class="btn btn-primary mr-3" [ngClass]="checkFavorite(r)?'lighton':'lightoff'" (click)="addFavorite(r)">Add to Favorites</a>
+          <a class="btn btn-primary" [routerLink]="['/singleview',r.yelpID]">View more details</a>
+        </div>
+      </div>
+    </div>
+    <!--<div class="container-fluid col-md-6 h-50">
+    <div class="card card-block">
+      <div class="card-body yelp-img">
+        <img class="card-img-top img-fluid" src="{{r.img}}" alt="Alternate Text" />
+      </div>
+    </div>
+  </div>-->
+  </div>
 
 </div>
+

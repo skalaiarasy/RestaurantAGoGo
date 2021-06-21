@@ -1,0 +1,60 @@
+.lighton {
+  background-color: lightgray;
+}
+
+.lightoff {
+  background-color: darkgreen;
+}
+
+.card {
+  float: left;
+  width: 33rem;
+  padding: .75rem;
+  height: 45vh;
+  margin-bottom: .75rem;
+  border: 0;
+  box-shadow: 0px 0px 8px 0.3px rgba(104,111,240,1);
+}
+
+.card-text {
+  word-wrap: break-word;
+}
+
+.yelp-img {
+  position: relative;
+  overflow: hidden;
+}
+
+  .yelp-img:after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  .yelp-img img {
+    width: auto;
+    height: 40vh;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+.horizontal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listHorizontal {
+  display: flex;
+  justify-content: normal;
+  list-style: none;
+}
+
+.restaurantcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+

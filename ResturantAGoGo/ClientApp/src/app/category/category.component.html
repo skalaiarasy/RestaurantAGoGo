@@ -1,4 +1,58 @@
-<!--<div style="border: 1px solid red">Choose a restaurant category</div>
-<button>Mexican</button>
-<button>Chinese</button>
-<button>Indian</button>-->
+<h1>Welcome to Restaurant A Go Go!</h1>
+
+
+<form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
+  <div class="input-group mb-3" style="width: 30%;">
+    <input class="form-control" name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
+    <div class="input-group-prepend">
+      <button class="btn btn-primary mr-2">Submit</button>
+    </div>
+  </div>
+</form>
+<!--https: //files.slack.com/files-pri/T04UPFZ31-F025XL5Q8G1/image.png-->
+<div *ngIf="zip_code >= 0">
+  <div>
+
+    <h2>See a list of restaurants in your area</h2>
+    <h4>Choose a list of nearby restaurants by category</h4><br />
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('')">All</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('mexican')">Mexican</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('chinese')">Chinese</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('indpak')">Indian</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('bbq')">Barbeque</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('hotdogs')">Fast Food</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('pizza')">Pizza</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('italian')">Italian</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('sandwiches')">Sandwiches</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('breakfast_brunch')">Breakfast</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('mideastern')">Middle Eastern</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('thai')">Thai</button>
+    </div>
+    <div class="row">
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('newamerican')">New American</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('tradamerican')">Traditional American</button>
+      <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('vegetarian')">Vegetarian</button>
+    </div>
+    
+  </div>
+
+</div>
+
+<div *ngIf="zip_code >= 0">
+  <div>
+    <h3>Can't decide?  Choose a random restaurant to visit</h3>
+    Randomizer!
+    <div class="row">
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',1,zip_code]">Click here for one random restaurant</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',3,zip_code]">Click here for three random restaurants</button>
+      <button class="col btn btn-primary mr-2" [routerLink]="['/random',5,zip_code]">Click here for five random restaurants</button>
+    </div>
+  </div>
+</div>

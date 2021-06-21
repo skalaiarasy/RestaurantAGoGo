@@ -11,6 +11,14 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RestaurantAllComponent } from './restaurant-all/restaurant-all.component';
 import { CategoryComponent } from './category/category.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { RandomComponent } from './random/random.component';
+import { SingleviewComponent } from './singleview/singleview.component';
+import { LogoutComponent } from './logout/logout.component';
+
+
 
 
 @NgModule({
@@ -21,18 +29,31 @@ import { CategoryComponent } from './category/category.component';
     CounterComponent,
     FetchDataComponent,
     RestaurantAllComponent,
-    CategoryComponent
+    CategoryComponent,
+    FavoritesComponent,
+    RegisterComponent,
+    LoginComponent,
+    RandomComponent,
+    SingleviewComponent,
+    LogoutComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: CategoryComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'restaurant-all', component: RestaurantAllComponent },
-      { path: 'category', component: CategoryComponent }
+      { path: 'restaurant-all/:zip/:category', component: RestaurantAllComponent },
+      { path: 'category', component: CategoryComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'favorites/:zip/:category', component: FavoritesComponent },
+      { path: 'random/:count/:zip', component: RandomComponent },
+      { path: 'singleview/:id', component: SingleviewComponent },
+      { path: 'logout', component: LogoutComponent }
     ])
   ],
   providers: [],

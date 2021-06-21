@@ -28,17 +28,42 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="%2a%2a\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="%2a%2a\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\Restaurant.ts" />
+    <Compile Remove="%2a%2a\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
+    <TypeScriptCompile Remove="%2a%2a\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Restaurant.ts" />
+    <None Remove="ClientApp\src\Favorite.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="%2a%2a\%2a.ts" />
+    <TypeScriptCompile Remove="%2a%2a\%2a.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\app\category\category.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\category\category.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\data.service.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\datastore.service.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\favorites\favorites.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\favorites\favorites.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\login\login.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\login\login.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\logout\logout.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\logout\logout.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\random\random.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\random\random.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\register\register.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\register\register.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\singleview\singleview.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\singleview\singleview.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
