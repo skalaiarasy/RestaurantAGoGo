@@ -1,10 +1,12 @@
 <div class="col-md-12 centertheform" style="width: 25rem;">
   <div class="card card-container">
-    <form *ngIf="!isSuccessful"
+    
+    <form *ngIf="!isSuccessful" class="alert alert-warning"
           name="form"
           (ngSubmit)="f.form.valid && onSubmit(f)"
-          #f="ngForm"
+          #f="ngForm" 
           novalidate>
+
       <div class="form-group">
         <input type="text"
                class="form-control"
@@ -45,9 +47,11 @@
         <button class="btn btn-primary btn-block">Register</button>
       </div>
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Signup failed!Try with Diff.Password!<br />{{ errorMessage }}
       </div>
     </form>
+
+
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
     </div>

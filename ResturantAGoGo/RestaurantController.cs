@@ -47,6 +47,9 @@ namespace RestaurantAGoGo
                 return user;
             }
         }
+
+        
+
         //To edit the user information-not sure 
         //api/Restaurant/updateuser
         //https://localhost:44334/api/Restaurant/updateuser?userName=Jean&password=54321
@@ -65,7 +68,7 @@ namespace RestaurantAGoGo
 
         
 
-    //Add the user information
+    //Register the new user 
     //api/Restaurant/adduser
     [HttpPost("adduser")]
 
@@ -75,14 +78,26 @@ namespace RestaurantAGoGo
             {
                 User user = new User();
                 user.UserName = userName;
-                user.Password = password;
-                restaurantContext.Add(user);
-                restaurantContext.SaveChanges();
-                return user;
+                user.Password = password;                
+                User result = restaurantContext.Users.ToList().Find(f => f.Password == password); 
+                if (result == null)
+                {
+                    user.UserName = userName;
+                    user.Password = password;
+                    restaurantContext.Add(user);
+                    restaurantContext.SaveChanges();
+                    return user;
+                }
+                else
+                {
+                    Console.WriteLine("The user is already exists");
+                    return null;
+                }
+                
             }
         }
 
-        //method to getting Favorite
+        //method for getting Favorite
         //api/Restaurant/getmyfavorites
 
         [HttpGet("getmyfavorites")]
@@ -136,10 +151,6 @@ namespace RestaurantAGoGo
             }
         }
     }
-
-
-
-
 }
    
 
