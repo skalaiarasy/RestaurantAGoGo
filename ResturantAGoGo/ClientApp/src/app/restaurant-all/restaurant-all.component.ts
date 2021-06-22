@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatastoreService } from '../datastore.service';
 import { Favorite } from '../Favorite';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
@@ -19,7 +20,7 @@ export class RestaurantAllComponent implements OnInit{
   favList: Favorite[];
 
     /** RestaurantAll ctor */
-    constructor(private service:RestaurantapiService, private route:ActivatedRoute, public router:Router ) {
+    constructor(private service:RestaurantapiService, private route:ActivatedRoute, public router:Router, public datastoreservice: DatastoreService) {
     
   }
 
@@ -82,12 +83,10 @@ export class RestaurantAllComponent implements OnInit{
   
 
   addFavorite(restaurant: Restaurant) {
-    //getID(): number {
-    //  return this.currentId;
-    //}
-    
-    //this.currentId = this.service.getID();
-    console.log(this.service.getID());
+    let id = this.datastoreservice.getUser().userId;
+    if (id != undefined) {
+      this.service.setID(id);
+    }
     if (this.service.getID() == -1)
     {
       this.router.navigate(['login']);
