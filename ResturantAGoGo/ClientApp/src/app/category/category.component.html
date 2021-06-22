@@ -48,7 +48,6 @@
 <div *ngIf="zip_code >= 0">
   <div>
     <h3>Can't decide?  Choose a random restaurant to visit</h3>
-    Randomizer!
     <div class="row">
       <button class="col btn btn-primary mr-2" [routerLink]="['/random',1,zip_code]">Click here for one random restaurant</button>
       <button class="col btn btn-primary mr-2" [routerLink]="['/random',3,zip_code]">Click here for three random restaurants</button>

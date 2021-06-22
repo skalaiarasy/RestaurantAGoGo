@@ -17,6 +17,9 @@ code {
 
 body {
   background-color: #F1DABF;
+  background-image: url(assets//image2.webp);
+  background-attachment: fixed;
+  background-size: cover;
   /*darkseagreen,#E7E393, #854D27*/
 }
 
