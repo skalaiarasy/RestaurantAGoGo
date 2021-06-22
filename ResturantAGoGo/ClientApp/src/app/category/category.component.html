@@ -3,7 +3,7 @@
 
 <form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
   <div class="input-group mb-3" style="width: 30%;">
-    <input class="form-control" name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
+    <input class="form-control" name="zip_code" type="number" size="5" maxlength="5" placeholder="Enter Zip Code" required ngModel />
     <div class="input-group-prepend">
       <button class="btn btn-primary mr-2">Submit</button>
     </div>
