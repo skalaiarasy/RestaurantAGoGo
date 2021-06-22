@@ -17,7 +17,7 @@
           <div class="listHorizontal">
             <p *ngFor="let t of r.type"> {{ t.title }}&emsp;</p>
           </div>
-          <a class="btn btn-primary mr-3" [ngClass]="checkFavorite(r)?'lighton':'lightoff'" (click)="addFavorite(r)">Add to Favorites</a>
+          <a class="btn btn-primary mr-3" [ngClass]="checkFavorite(r)?'favon':'favoff'" (click)="addFavorite(r)">Add to Favorites</a>
           <a class="btn btn-primary" [routerLink]="['/singleview',r.yelpID]">View more details</a>
         </div>
       </div>
