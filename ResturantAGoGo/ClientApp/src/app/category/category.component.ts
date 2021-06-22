@@ -39,7 +39,7 @@ export class CategoryComponent {
     this.router.navigate(['/restaurant-all',this.zip_code,this.categories]);
   }
 
-  value: any;
+
 
   // This will validate the zip code entered on the zipcode page.
   validateZipCode = () => {
