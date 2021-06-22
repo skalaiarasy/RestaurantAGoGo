@@ -1,0 +1,26 @@
+/*.formattingZipCode {
+  display: block;
+  margin: 0 auto;
+  max-width: 250px;
+}
+*/
+
+#zipCodeConfirmed {
+  width: 100%;
+  background-color: yellow;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 10px;
+  border: 2px solid brown;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#output {
+  margin: 10px 0;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  font-size: 1.25em;
+}

@@ -3,12 +3,25 @@
 
 <form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
   <div class="input-group mb-3" style="width: 30%;">
-    <input class="form-control" name="zip_code" type="number" size="5" maxlength="5" placeholder="Enter Zip Code" required ngModel />
+    <input class="form-control" name="zip_code" type="number" id="zip_code" placeholder="Enter Zip Code" onBlur="validateZipCode();" ngModel/>
     <div class="input-group-prepend">
       <button class="btn btn-primary mr-2">Submit</button>
+      <p id="zipCodeConfirmed">Zip code Confirmed!</p>
+      <div id="output"></div>
     </div>
   </div>
 </form>
+
+
+<!--
+<div class="container">
+  <label for="zip_code">Enter a 5 or 9 digit zipcode below.</label>
+  <input type="text" name="zip_code" id="zip_code" onBlur="validateZipCode();" />
+  <div id="output"></div>
+
+<p id="alert">This input field will automatically insert a hyphen when validating a 9-digit zipcode with regex and JavaScript.</p>
+</div>
+  -->
 <!--https: //files.slack.com/files-pri/T04UPFZ31-F025XL5Q8G1/image.png-->
 <div *ngIf="zip_code >= 0">
   <div>
@@ -40,7 +53,7 @@
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('tradamerican')">Traditional American</button>
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('vegetarian')">Vegetarian</button>
     </div>
-    
+
   </div>
 
 </div>

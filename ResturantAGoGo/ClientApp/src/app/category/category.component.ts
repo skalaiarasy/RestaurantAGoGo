@@ -39,4 +39,25 @@ export class CategoryComponent {
     this.router.navigate(['/restaurant-all',this.zip_code,this.categories]);
   }
 
+  value: any;
+
+  // This will validate the zip code entered on the zipcode page.
+  validateZipCode = () => {
+    let input = document.getElementById('zip_code').nodeValue;
+    let output = document.getElementById('zipCodeConfirmed');
+
+    const regex = /(\d{5})(\d{4})/;
+
+    if (input.length === 5) {
+      output.innerHTML = "Valid 5-digit zipcode."
+    } else if (input.length === 9) {
+      output.innerHTML = input.replace(regex, "$1-$2 is a valid zipcode.");
+      // Replace contents of text field
+      document.getElementById('zip_code').nodeValue = input.replace(/(\d{5})(\d{4})/, "$1-$2");
+    } else {
+      output.innerHTML = "Zipcode entered is invalid."
+    }
+  }
+
+
 }
