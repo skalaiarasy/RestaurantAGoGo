@@ -1,6 +1,5 @@
 <h3>Please enter a zip code to search for restaurants</h3>
 
-
 <form #setForm="ngForm" (ngSubmit)="setZipCode(setForm)">
   <div class="input-group mb-3" style="width: 30%;">
     <input class="form-control" name="zip_code" type="number" placeholder="Enter Zip Code" required ngModel />
@@ -9,10 +8,9 @@
     </div>
   </div>
 </form>
-<!--https: //files.slack.com/files-pri/T04UPFZ31-F025XL5Q8G1/image.png-->
+
 <div *ngIf="zip_code >= 0">
   <div>
-
     <h2>See a list of restaurants in your area</h2>
     <h4>Choose a list of nearby restaurants by category</h4><br />
     <div class="row">
@@ -39,10 +37,8 @@
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('newamerican')">New American</button>
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('tradamerican')">Traditional American</button>
       <button class="col btn btn-primary mr-2 mb-2" name="categories" (click)="setCategoryClick('vegetarian')">Vegetarian</button>
-    </div>
-    
+    </div>  
   </div>
-
 </div>
 
 <div *ngIf="zip_code >= 0">

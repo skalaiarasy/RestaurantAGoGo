@@ -30,10 +30,6 @@ export class SingleviewComponent {
     latitude: 0,
     longitude: 0,
   }
-  //interface Category {
-  //  alias: "",
-  //  title: ""
-  /*}*/
     
     /** singleview ctor */
     constructor(private service: RestaurantapiService, public datastoreService:DatastoreService, public router: Router, public route: ActivatedRoute) {
@@ -107,6 +103,15 @@ export class SingleviewComponent {
     this.service.removeFavorite(favId, userId);
     this.message = "Favorite successfully removed.";
     /*this.router.navigate(['favorites']);*/
+  }
+
+  favList: Favorite[] = [];
+
+  removeFavorite(favId: number, userId: number) {
+    this.service.removeFavorite(favId, userId);
+    let thisCategory = this.favList.find(e => e.favoriteId == favId);
+    let index = this.favList.indexOf(thisCategory);
+    this.favList.splice(index, 1);
   }
 }
 

@@ -13,7 +13,6 @@ import { DatastoreService } from '../datastore.service';
 /** category component*/
 export class CategoryComponent {
 
-  /*restByCatList: Restaurant[] = [];*/
   zip_code: number = -1;
   categories: string = '';
 

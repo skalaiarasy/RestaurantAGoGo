@@ -27,10 +27,7 @@ export class RandomComponent {
     this.service.randomCall().subscribe(
       (response: any) => {
         console.log(response);
-
         for (var i = 0; i < (Number)(this.route.snapshot.paramMap.get("count")); i++) {
-
-
           let result: any = response.businesses[Math.floor(Math.random() * response.businesses.length)];
           console.log(response.businesses.length);
           let newRestaurant: Restaurant = {

@@ -5,5 +5,4 @@ export interface Favorite{
   restaurantName: string;
   restaurantAddress: string;
   img: string;
-
 }
