@@ -20,7 +20,7 @@ export class FavoritesComponent {
   }
   favList: Favorite[] = [];
   restaurants: Restaurant[] = [];
-  favCategory: Restaurant[] = [];
+  
 
   //need to fix the code
 

@@ -1,11 +1,3 @@
-.favon {
-  background-color: lightgray;
-}
-
-.favoff {
-  background-color: darkgreen;
-}
-
 .card {
   float: left;
   width: 33rem;
@@ -52,11 +44,8 @@
   list-style: none;
 }
 
-.restaurantcontainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-evenly;
+.favoritecontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
-
-
