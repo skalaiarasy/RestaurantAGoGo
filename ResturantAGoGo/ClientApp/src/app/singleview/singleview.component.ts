@@ -1,5 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatastoreService } from '../datastore.service';
 import { Favorite } from '../Favorite';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
@@ -12,6 +13,7 @@ import { RestaurantapiService } from '../restaurantapi.service';
 /** singleview component*/
 export class SingleviewComponent {
 
+  message: string = '';
   restaurant: Restaurant = {
     name: "",
     address: "",
@@ -30,9 +32,10 @@ export class SingleviewComponent {
   }
     
     /** singleview ctor */
-    constructor(private service: RestaurantapiService, public router: Router, public route: ActivatedRoute) {
+    constructor(private service: RestaurantapiService, public datastoreService:DatastoreService, public router: Router, public route: ActivatedRoute) {
 
   }
+  favList: Favorite[] = [];
 
   ngOnInit() {
     let id: string = this.route.snapshot.paramMap.get("id");
@@ -54,6 +57,52 @@ export class SingleviewComponent {
         this.restaurant.longitude = response.coordinates.longitude;
       }
     )
+    this.getFavorites();
+  }
+  
+  getFavorites(): void {
+    this.service.getMyFavorites().subscribe(
+      (response: any) => {
+        this.favList = response.filter((f: Favorite) => f.userId == this.datastoreService.getUser().userId);
+        console.log(this.favList);
+      }
+    )
+  }
+
+  addFavorite(restaurant: Restaurant) {
+    let id = this.datastoreService.getUser().userId;
+    if (id != undefined) {
+      this.service.setID(id);
+    }
+    if (this.service.getID() == -1) {
+      this.router.navigate(['login']);
+    }
+    else {
+      this.service.addFavorite(restaurant);
+      let newfavorite: Favorite = {
+        yelpId: restaurant.yelpID,
+        restaurantName: "",
+        restaurantAddress: "",
+        img: "",
+        favoriteId: 0,
+        userId: 0
+      };
+      this.favList.push(newfavorite);
+      this.message = 'Restaurant successfully added in your list.';
+      ///* this.light2 = !this.light2; tried, didn't work
+      //this.service.toggleLight2(restaurant);
+      this.router.navigate(['restaurant-all']);
+    }
+    //this.service.addFavorite(restaurant);
+    //this.router.navigate(['restaurant-all']);
+  }
+
+  removeFavorite(id: string) {
+    let userId: number = this.datastoreService.getUser().userId;
+    let favId: number = this.favList.find(f => f.yelpId == id && f.userId == userId).favoriteId;
+    this.service.removeFavorite(favId, userId);
+    this.message = "Favorite successfully removed.";
+    /*this.router.navigate(['favorites']);*/
   }
 
   favList: Favorite[] = [];
