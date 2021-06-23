@@ -29,10 +29,7 @@ export class NavMenuComponent {
       if (this.restaurantapiservice.getID() != -1)
       {
         this.restaurantapiservice.setID(user.userId);
-        console.log(this.restaurantapiservice.getID());
-        this.whoisloggedin = user.userName;
-        console.log(this.whoisloggedin);
-      
+        this.whoisloggedin = user.userName; 
       }
       return true;
     }

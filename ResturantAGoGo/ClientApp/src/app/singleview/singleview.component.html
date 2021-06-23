@@ -8,9 +8,9 @@
 <img width="200" height="200" src="{{ restaurant.img }}" />
 <br />
 <br />
-<!--<div>-->
 <a class="btn btn-primary" style="margin-right:10px" href="{{ restaurant.url }}" target="_blank">Click here for more info</a>
-<!--</div><br />-->
-<a class="btn btn-success" href="https://www.google.com/maps/place/ {{ restaurant.address }}+{{ restaurant.city }}+{{ restaurant.zip }}" target="_blank">Click here for map</a>
-<a class="btn btn-danger mr-3" (click)="removeFavorite(f.favoriteId,f.userId)">Remove from Favorites</a>
+<a class="btn btn-success" style="margin-right:10px" href="https://www.google.com/maps/place/ {{ restaurant.address }}+{{ restaurant.city }}+{{ restaurant.zip }}" target="_blank">Click here for map</a>
+<div *ngFor="let f of favList">
+  <a class="btn btn-danger mr-3" (click)="removeFavorite(f.favoriteId,f.userId)">Remove from Favorites</a>
+</div>
 <!--<a class="btn btn-primary mr-3" [ngClass]="checkFavorite(r)?'lighton':'lightoff'" (click)="addFavorite(r)">Add to Favorites</a>-->

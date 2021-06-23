@@ -27,10 +27,10 @@ export class LoginComponent {
     console.log(this.tokenStorage.getUser());
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
-      
+      this.roles = this.tokenStorage.getUser().roles;      
     }
   }
+
   onSubmit(): void {
     const { username, password } = this.form;
     this.service.login(username, password).subscribe(
@@ -47,11 +47,8 @@ export class LoginComponent {
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
           this.restaurantService.setID(data.userId);
-          //this.reloadPage();
-
           this.router.navigate(['/category']);
-        }
-        
+        }       
       },
       err => {
         this.errorMessage = err.error.message;
@@ -59,6 +56,7 @@ export class LoginComponent {
       }
     );
   }
+
   reloadPage(): void {
     window.location.reload();
   }

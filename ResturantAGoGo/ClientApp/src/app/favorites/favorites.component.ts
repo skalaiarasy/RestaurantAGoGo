@@ -20,13 +20,8 @@ export class FavoritesComponent {
   }
   favList: Favorite[] = [];
   restaurants: Restaurant[] = [];
-  
-
-  //need to fix the code
 
   ngOnInit() {
-    //this.service.setCategory(this.route.snapshot.paramMap.get("category"));
-    //this.service.setZip(+this.route.snapshot.paramMap.get("zip"));
     this.service.getMyFavorites().subscribe(
       (response: any) => {
         this.favList = response.filter((f: Favorite)=> f.userId == this.datastoreService.getUser().userId);
@@ -50,8 +45,6 @@ export class FavoritesComponent {
     if (user.userName != null) {
       if (this.service.getID() != -1)
       {
-        /*this.restaurantapiservice.setID(user.userId);*/
-        //console.log(this.restaurantapiservice.getID());
        
       }
       return true;
@@ -61,6 +54,7 @@ export class FavoritesComponent {
       return false;
     }
   }
+
   removeFavorite(favId: number, userId: number) {
     this.service.removeFavorite(favId, userId);
     let thisCategory = this.favList.find(e => e.favoriteId == favId);

@@ -1,15 +1,14 @@
-<h2 class="card-title text-center">Welcome to Restaurant A Go Go!</h2>
-<h4 class="card-text text-center">See a list of restaurants in your area</h4>
+<h2 class="card-title text-center">See a list of restaurants in your area</h2>
 
 <div class="form-group container" style="width: 35%">
   <label for="search-text"></label>
   <input type="email" class="form-control" id="search-text"
-         [(ngModel)]="listFilter" placeholder="Search for a restaurant in your area here">
+         [(ngModel)]="listFilter" placeholder="Search for a restaurant in your area here" />
 </div>
+
 <h1 *ngIf="filteredRestaurantLists.length == 0">
   Please wait.  Loading results.
 </h1>
-
 
 <div class="restaurantcontainer">
   <div class="row mb-3" *ngFor="let r of filteredRestaurantLists">
@@ -27,14 +26,6 @@
         </div>
       </div>
     </div>
-    <!--<div class="container-fluid col-md-6 h-50">
-    <div class="card card-block">
-      <div class="card-body yelp-img">
-        <img class="card-img-top img-fluid" src="{{r.img}}" alt="Alternate Text" />
-      </div>
-    </div>
-  </div>-->
   </div>
-
 </div>
 

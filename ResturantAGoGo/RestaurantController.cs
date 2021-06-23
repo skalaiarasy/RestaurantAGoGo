@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RestaurantAGoGo.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace RestaurantAGoGo
@@ -13,8 +17,6 @@ namespace RestaurantAGoGo
     {
 
         [HttpGet("getall")]
-
-       
         //api/Restaurant/getall
         public List<User> GetAll()
         {
@@ -149,6 +151,34 @@ namespace RestaurantAGoGo
                 restaurantContext.Remove(deleteFav);
                 restaurantContext.SaveChanges();
             }
+        }
+
+        [HttpGet("api")]
+        public Yelp GetYelp(string location, string category)
+        {
+            string url = $"https://api.yelp.com/v3/businesses/search?location={ location }&sort_by=distance&limit=50&term=restaurants&radius=40000&categories={ category }";
+            HttpWebRequest request = WebRequest.CreateHttp(url);
+            request.Headers.Add("Authorization", "Bearer aA3pXKu5ij8oTY5mGvkjPBZGogIh3JfjLj9TRGszvGw4EDFTv4lBCj-73-ql_YJ6KJrEhYl_o5XQ-BwT5m3y1qTuOaHdbhBIe2JI_3bQyMix2W_qfQKXTmSdI6nDYHYx");
+            request.Headers.Add("Access-Control-Allow-Origin", "*");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string JSON = reader.ReadToEnd();
+            Yelp result = JsonConvert.DeserializeObject<Yelp>(JSON);
+            return result;
+        }
+
+        [HttpGet("apisingle")]
+        public YelpSingle GetYelpSingle (string id)
+        {
+            string url = $"https://api.yelp.com/v3/businesses/{ id }";
+            HttpWebRequest request = WebRequest.CreateHttp(url);
+            request.Headers.Add("Authorization", "Bearer aA3pXKu5ij8oTY5mGvkjPBZGogIh3JfjLj9TRGszvGw4EDFTv4lBCj-73-ql_YJ6KJrEhYl_o5XQ-BwT5m3y1qTuOaHdbhBIe2JI_3bQyMix2W_qfQKXTmSdI6nDYHYx");
+            request.Headers.Add("Access-Control-Allow-Origin", "*");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string JSON = reader.ReadToEnd();
+            YelpSingle result = JsonConvert.DeserializeObject<YelpSingle>(JSON);
+            return result;
         }
     }
 }

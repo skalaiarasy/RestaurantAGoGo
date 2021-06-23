@@ -1,5 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Favorite } from '../Favorite';
 import { Restaurant } from '../Restaurant';
 import { RestaurantapiService } from '../restaurantapi.service';
 
@@ -27,10 +28,6 @@ export class SingleviewComponent {
     latitude: 0,
     longitude: 0,
   }
-  //interface Category {
-  //  alias: "",
-  //  title: ""
-  /*}*/
     
     /** singleview ctor */
     constructor(private service: RestaurantapiService, public router: Router, public route: ActivatedRoute) {
@@ -57,6 +54,15 @@ export class SingleviewComponent {
         this.restaurant.longitude = response.coordinates.longitude;
       }
     )
+  }
+
+  favList: Favorite[] = [];
+
+  removeFavorite(favId: number, userId: number) {
+    this.service.removeFavorite(favId, userId);
+    let thisCategory = this.favList.find(e => e.favoriteId == favId);
+    let index = this.favList.indexOf(thisCategory);
+    this.favList.splice(index, 1);
   }
 }
 
