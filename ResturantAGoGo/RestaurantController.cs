@@ -145,9 +145,18 @@ namespace RestaurantAGoGo
             using (RestaurantContext restaurantContext = new RestaurantContext())
             {
                 Favorite deleteFav = new Favorite();
-                deleteFav = restaurantContext.Favorites.ToList().Find(d => d.UserId == userId && d.FavoriteId == favId);
-                restaurantContext.Remove(deleteFav);
-                restaurantContext.SaveChanges();
+                try
+                {
+                    deleteFav = restaurantContext.Favorites.ToList().Find(d => d.UserId == userId && d.FavoriteId == favId);
+                    restaurantContext.Remove(deleteFav);
+                    restaurantContext.SaveChanges();
+                }
+                catch(Exception e)
+                {
+                
+                }
+
+                
             }
         }
     }

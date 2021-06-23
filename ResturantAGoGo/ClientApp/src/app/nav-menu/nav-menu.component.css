@@ -19,3 +19,8 @@ html {
 ul li a:visited {
   color: aqua;
 }
+
+.link-active{
+    background-color:gainsboro;
+    color:red;
+}
