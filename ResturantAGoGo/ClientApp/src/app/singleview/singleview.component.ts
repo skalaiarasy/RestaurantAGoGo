@@ -104,14 +104,6 @@ export class SingleviewComponent {
     this.message = "Favorite successfully removed.";
     /*this.router.navigate(['favorites']);*/
   }
-
-  favList: Favorite[] = [];
-
-  removeFavorite(favId: number, userId: number) {
-    this.service.removeFavorite(favId, userId);
-    let thisCategory = this.favList.find(e => e.favoriteId == favId);
-    let index = this.favList.indexOf(thisCategory);
-    this.favList.splice(index, 1);
-  }
+  
 }
 
