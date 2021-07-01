@@ -10,14 +10,11 @@
   <br />
   <br />
 
-  <!--<div>-->
   <a class="btn btn-primary" style="margin-right:10px" href="{{ restaurant.url }}" target="_blank">Click here for more info</a>
-  <!--</div><br />-->
 
   <a class="btn btn-success" style="margin-right:10px" href="https://www.google.com/maps/place/ {{ restaurant.address }}+{{ restaurant.city }}+{{ restaurant.zip }}" target="_blank">Click here for map</a>
   <a class="btn btn-primary mr-3" (click)="addFavorite(restaurant)">Add to Favorites</a>
   <a class="btn btn-danger mr-3" style="margin-right:10px" (click)="removeFavorite(restaurant.yelpID)">Remove from Favorites</a>
   <p>{{ message }}</p>
-  <!--<a class="btn btn-danger" [routerLink]="['/favorites']">Remove from Favorites</a>-->
-  <!--<a class="btn btn-primary mr-3" [ngClass]="checkFavorite(r)?'lighton':'lightoff'" (click)="addFavorite(r)">Add to Favorites</a>-->
+
 </div>

@@ -89,12 +89,8 @@ export class SingleviewComponent {
       };
       this.favList.push(newfavorite);
       this.message = 'Restaurant successfully added in your list.';
-      ///* this.light2 = !this.light2; tried, didn't work
-      //this.service.toggleLight2(restaurant);
       this.router.navigate(['restaurant-all']);
     }
-    //this.service.addFavorite(restaurant);
-    //this.router.navigate(['restaurant-all']);
   }
 
   removeFavorite(id: string) {
@@ -102,8 +98,6 @@ export class SingleviewComponent {
     let favId: number = this.favList.find(f => f.yelpId == id && f.userId == userId).favoriteId;
     this.service.removeFavorite(favId, userId);
     this.message = "Favorite successfully removed.";
-    /*this.router.navigate(['favorites']);*/
-  }
-  
+  } 
 }
 

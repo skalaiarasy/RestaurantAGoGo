@@ -38,6 +38,7 @@ namespace RestaurantAGoGo
                 return user;
             }
         }
+
         [HttpGet("getuserinfo")]
         //api/Restaurant/getuserinfo
         public User GetUserInfo(string userName, string password)
@@ -50,9 +51,6 @@ namespace RestaurantAGoGo
             }
         }
 
-        
-
-        //To edit the user information-not sure 
         //api/Restaurant/updateuser
         //https://localhost:44334/api/Restaurant/updateuser?userName=Jean&password=54321
         [HttpPut("updateuser")]
@@ -68,12 +66,9 @@ namespace RestaurantAGoGo
             }
         }
 
-        
-
-    //Register the new user 
-    //api/Restaurant/adduser
-    [HttpPost("adduser")]
-
+        //Register the new user 
+        //api/Restaurant/adduser
+        [HttpPost("adduser")]
         public User AddUser(string userName, string password)
         {
             using (RestaurantContext restaurantContext = new RestaurantContext())
@@ -101,7 +96,6 @@ namespace RestaurantAGoGo
 
         //method for getting Favorite
         //api/Restaurant/getmyfavorites
-
         [HttpGet("getmyfavorites")]
         public List<Favorite> GetMyFavorites()
         {
@@ -110,14 +104,13 @@ namespace RestaurantAGoGo
                 return favoriteContext.Favorites.ToList();
             }
         }
+
         //api/favorite/addfavorite
         //adding favarite
         [HttpPost("addfavorite")]
         public Favorite AddFavorite(int userId, string yelpID, string name, string address, string img)
-        {
-            
-            Favorite favorite = new Favorite();
-            
+        {   
+            Favorite favorite = new Favorite();        
             using (RestaurantContext favoriteContext = new RestaurantContext())
             {
                 Favorite result = favoriteContext.Favorites.ToList().Find(f => f.UserId == userId && f.YelpId == yelpID);
@@ -156,9 +149,7 @@ namespace RestaurantAGoGo
                 catch(Exception e)
                 {
                 
-                }
-
-                
+                }              
             }
         }
 
